@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Sanitario Giornaliero</title>
+<style>
+  :root {
+    --blu: #1a3a5c;
+    --blu-chiaro: #2a5f8f;
+    --verde: #1e7d5e;
+    --verde-chiaro: #27a97d;
+    --arancio: #c45c1a;
+    --rosso: #b22c2c;
+    --grigio: #f4f6f8;
+    --grigio-testo: #5a6a7a;
+    --bordo: #dde3ea;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #eef1f5;
+    color: #1a2a3a;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--blu) 0%, var(--blu-chiaro) 100%);
+    color: white;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .header-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.01em; }
+  .header .subtitle { font-size: 0.82rem; opacity: 0.75; margin-top: 2px; }
+  .header-right { text-align: right; font-size: 0.82rem; opacity: 0.8; }
+  .header-right strong { display: block; font-size: 1rem; opacity: 1; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
+
+  /* SINTESI CARDS */
+  .sintesi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .sintesi-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    display: flex; flex-direction: column; gap: 6px;
+    border-top: 4px solid var(--blu-chiaro);
+    transition: transform 0.15s;
+    cursor: default;
+  }
+  .sintesi-card:hover { transform: translateY(-2px); }
+  .sintesi-card.verde { border-top-color: var(--verde-chiaro); }
+  .sintesi-card.arancio { border-top-color: var(--arancio); }
+  .sintesi-card.rosso { border-top-color: var(--rosso); }
+  .sintesi-card .num { font-size: 2rem; font-weight: 800; color: var(--blu); line-height: 1; }
+  .sintesi-card.verde .num { color: var(--verde); }
+  .sintesi-card.arancio .num { color: var(--arancio); }
+  .sintesi-card.rosso .num { color: var(--rosso); }
+  .sintesi-card .label { font-size: 0.78rem; color: var(--grigio-testo); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* SEZIONI */
+  .section { margin-bottom: 22px; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .section-header h2 {
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--blu);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    flex: 1;
+  }
+  .section-badge {
+    background: var(--blu);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .toggle-icon { font-size: 1rem; color: var(--grigio-testo); transition: transform 0.2s; }
+  .section-body { display: flex; flex-direction: column; gap: 10px; }
+  .section-body.collapsed { display: none; }
+
+  /* CARD VOCE */
+  .voce-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-left: 5px solid var(--blu-chiaro);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  .voce-card.alta { border-left-color: var(--rosso); }
+  .voce-card.media { border-left-color: var(--arancio); }
+  .voce-card.bassa { border-left-color: var(--verde-chiaro); }
+  .voce-titolo { font-weight: 700; font-size: 0.92rem; margin-bottom: 4px; }
+  .voce-ente { font-size: 0.8rem; color: var(--grigio-testo); margin-bottom: 6px; }
+  .voce-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--grigio);
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-size: 0.72rem;
+    color: #3a4a5a;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .tag.scadenza { background: #ffeaea; color: var(--rosso); }
+  .tag.area { background: #e8f4ff; color: var(--blu-chiaro); }
+  .voce-nota {
+    font-size: 0.78rem;
+    color: var(--grigio-testo);
+    font-style: italic;
+    margin-top: 6px;
+    border-top: 1px solid var(--bordo);
+    padding-top: 6px;
+  }
+  .rilevanza-badge {
+    align-self: start;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .rilevanza-badge.alta { background: #ffeaea; color: var(--rosso); }
+  .rilevanza-badge.media { background: #fff3e0; color: var(--arancio); }
+  .rilevanza-badge.bassa { background: #e8f7f1; color: var(--verde); }
+
+  /* LISTE D'ATTESA */
+  .attesa-section { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 22px; }
+  .attesa-title { font-size: 0.95rem; font-weight: 700; color: var(--blu); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .attesa-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .attesa-table th { background: var(--grigio); color: var(--grigio-testo); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; padding: 8px 10px; text-align: left; }
+  .attesa-table td { padding: 9px 10px; border-bottom: 1px solid var(--bordo); }
+  .attesa-table tr:last-child td { border-bottom: none; }
+  .attesa-table tr:hover td { background: #f8fafc; }
+  .semaforo { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  .sem-verde { background: var(--verde-chiaro); }
+  .sem-giallo { background: #f0b429; }
+  .sem-rosso { background: var(--rosso); }
+
+  /* AZIONI */
+  .azioni-section { background: linear-gradient(135deg, #f0f6ff 0%, #e8f4ec 100%); border-radius: 12px; padding: 20px 22px; margin-bottom: 22px; border: 1px solid var(--bordo); }
+  .azioni-title { font-size: 0.95rem; font-weight: 700; color: var(--blu); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .azione-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .azione-item:last-child { border-bottom: none; }
+  .azione-num { background: var(--blu); color: white; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .azione-testo { font-size: 0.85rem; line-height: 1.5; }
+  .azione-testo strong { color: var(--blu); }
+
+  /* PODCAST */
+  .podcast-section { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 22px; }
+  .podcast-title { font-size: 0.95rem; font-weight: 700; color: var(--blu); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .podcast-player {
+    background: var(--grigio);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .play-btn {
+    width: 44px; height: 44px;
+    background: var(--blu);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .play-btn:hover { background: var(--blu-chiaro); }
+  .podcast-info { flex: 1; }
+  .podcast-info .p-title { font-weight: 700; font-size: 0.88rem; margin-bottom: 4px; }
+  .podcast-info .p-sub { font-size: 0.75rem; color: var(--grigio-testo); }
+  .podcast-bar { flex: 1; height: 4px; background: var(--bordo); border-radius: 4px; position: relative; }
+  .podcast-bar-fill { width: 0%; height: 100%; background: var(--blu-chiaro); border-radius: 4px; transition: width 0.1s; }
+  .podcast-time { font-size: 0.75rem; color: var(--grigio-testo); white-space: nowrap; }
+  .podcast-script {
+    margin-top: 14px;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.83rem;
+    line-height: 1.7;
+    color: #2a3a4a;
+    border-left: 3px solid var(--blu-chiaro);
+  }
+
+  /* FOOTER */
+  .footer { text-align: center; font-size: 0.75rem; color: var(--grigio-testo); padding: 20px 0 10px; }
+
+  /* SEPARATORE */
+  .sep { height: 1px; background: var(--bordo); margin: 6px 0 16px; }
+
+  /* CHIP FILTRI */
+  .filtri { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .chip {
+    background: white;
+    border: 1.5px solid var(--bordo);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--grigio-testo);
+  }
+  .chip.active, .chip:hover { background: var(--blu); color: white; border-color: var(--blu); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="header-icon">🏥</div>
+    <div>
+      <div class="header h1" style="font-size:1.2rem;font-weight:700;color:white;">Report Sanitario Giornaliero</div>
+      <div class="subtitle">Monitoraggio strategico — Sanità italiana</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <strong>Venerdì, 10 aprile 2026</strong>
+    Generato alle 07:03
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SINTESI -->
+  <div class="sintesi-grid">
+    <div class="sintesi-card">
+      <div class="num">12</div>
+      <div class="label">Bandi & Concorsi</div>
+    </div>
+    <div class="sintesi-card verde">
+      <div class="num">5</div>
+      <div class="label">Manifestaz. d'interesse</div>
+    </div>
+    <div class="sintesi-card arancio">
+      <div class="num">3</div>
+      <div class="label">Incarichi dirigenziali</div>
+    </div>
+    <div class="sintesi-card">
+      <div class="num">8</div>
+      <div class="label">Gare & Affidamenti</div>
+    </div>
+    <div class="sintesi-card rosso">
+      <div class="num">2</div>
+      <div class="label">Aggiorn. normativi</div>
+    </div>
+    <div class="sintesi-card">
+      <div class="num">4</div>
+      <div class="label">Upd. liste d'attesa</div>
+    </div>
+  </div>
+
+  <!-- FILTRI -->
+  <div class="filtri">
+    <div class="chip active">Tutto</div>
+    <div class="chip">Bandi & Concorsi</div>
+    <div class="chip">Incarichi</div>
+    <div class="chip">Gare</div>
+    <div class="chip">Normativa</div>
+    <div class="chip">Alta priorità ⚠️</div>
+  </div>
+
+  <!-- BANDI E CONCORSI -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div>🗂</div>
+      <h2>Bandi e Concorsi</h2>
+      <span class="section-badge">12</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="sep"></div>
+    <div class="section-body">
+
+      <div class="voce-card alta">
+        <div>
+          <div class="voce-titolo">Concorso pubblico per n. 3 Dirigenti Medici — Anatomia Patologica</div>
+          <div class="voce-ente">ASP Palermo · G.U. Serie Concorsi n. 28 del 09/04/2026</div>
+          <div class="voce-meta">
+            <span class="tag scadenza">⏰ Scadenza: 09/05/2026</span>
+            <span class="tag area">📍 Sicilia</span>
+            <span class="tag">👤 Specializzazione richiesta</span>
+          </div>
+          <div class="voce-nota">Bando di interesse diretto per profili di anatomia patologica. Verificare requisiti di anzianità di servizio.</div>
+        </div>
+        <span class="rilevanza-badge alta">● Alta</span>
+      </div>
+
+      <div class="voce-card alta">
+        <div>
+          <div class="voce-titolo">Avviso pubblico per incarico di Direttore Sanitario</div>
+          <div class="voce-ente">Azienda Ospedaliera Universitaria "Policlinico" di Bari</div>
+          <div class="voce-meta">
+            <span class="tag scadenza">⏰ Scadenza: 25/04/2026</span>
+            <span class="tag area">📍 Puglia</span>
+            <span class="tag">📋 Incarico a tempo determinato</span>
+          </div>
+          <div class="voce-nota">Esperienza minima richiesta 5 anni in ruolo dirigenziale sanitario. Colloquio previsto entro 30 giorni dalla scadenza.</div>
+        </div>
+        <span class="rilevanza-badge alta">● Alta</span>
+      </div>
+
+      <div class="voce-card media">
+        <div>
+          <div class="voce-titolo">Concorso per n. 6 Tecnici di Laboratorio Biomedico</div>
+          <div class="voce-ente">ASL Roma 1 · Boll. Reg. Lazio n. 30 del 08/04/2026</div>
+          <div class="voce-meta">
+            <span class="tag scadenza">⏰ Scadenza: 30/04/2026</span>
+            <span class="tag area">📍 Lazio</span>
+            <span class="tag">🎓 Laurea triennale</span>
+          </div>
+          <div class="voce-nota">Profili tecnici per laboratorio analisi. Possibile mobilità per personale già in ruolo SSN.</div>
+        </div>
+        <span class="rilevanza-badge media">● Media</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GARE E AFFIDAMENTI -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div>📦</div>
+      <h2>Gare & Affidamenti</h2>
+      <span class="section-badge">8</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="sep"></div>
+    <div class="section-body">
+
+      <div class="voce-card media">
+        <div>
+          <div class="voce-titolo">Gara europea per fornitura sistemi automatizzati istocitopatologia</div>
+          <div class="voce-ente">AOU Careggi Firenze · CIG: 98134520AB</div>
+          <div class="voce-meta">
+            <span class="tag scadenza">⏰ Scadenza offerte: 15/05/2026</span>
+            <span class="tag area">📍 Toscana</span>
+            <span class="tag">💶 Base d'asta: € 1.200.000</span>
+          </div>
+          <div class="voce-nota">Procedura aperta sopra soglia. Criterio di aggiudicazione: offerta economicamente più vantaggiosa.</div>
+        </div>
+        <span class="rilevanza-badge alta">● Alta</span>
+      </div>
+
+      <div class="voce-card bassa">
+        <div>
+          <div class="voce-titolo">Affidamento diretto servizi di sterilizzazione strumentario</div>
+          <div class="voce-ente">ASL Benevento</div>
+          <div class="voce-meta">
+            <span class="tag area">📍 Campania</span>
+            <span class="tag">💶 Importo: € 48.000</span>
+            <span class="tag">📋 Affidamento diretto</span>
+          </div>
+          <div class="voce-nota">Procedura sotto soglia. Già aggiudicato. Pubblicato per trasparenza.</div>
+        </div>
+        <span class="rilevanza-badge bassa">● Bassa</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AGGIORNAMENTI NORMATIVI -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div>📜</div>
+      <h2>Aggiornamenti Normativi</h2>
+      <span class="section-badge">2</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="sep"></div>
+    <div class="section-body">
+
+      <div class="voce-card alta">
+        <div>
+          <div class="voce-titolo">Circolare Min. Salute: nuovi standard tempi massimi di refertazione anatomia patologica</div>
+          <div class="voce-ente">Ministero della Salute · Prot. n. 0012347 del 09/04/2026</div>
+          <div class="voce-meta">
+            <span class="tag area">📍 Nazionale</span>
+            <span class="tag">📋 Obbligatorio dal 01/07/2026</span>
+          </div>
+          <div class="voce-nota">Aggiornamento dei LEA per i tempi di refertazione: 10 gg per urgenti, 20 gg per routine. Recepimento regionale entro 60 giorni.</div>
+        </div>
+        <span class="rilevanza-badge alta">● Alta</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LISTE D'ATTESA -->
+  <div class="attesa-section">
+    <div class="attesa-title">
+      ⏳ Liste d'Attesa — Aggiornamento settimanale
+    </div>
+    <table class="attesa-table">
+      <thead>
+        <tr>
+          <th>Prestazione</th>
+          <th>Regione / ASL</th>
+          <th>Classe priorità</th>
+          <th>Tempo medio attesa</th>
+          <th>Andamento</th>
+          <th>Agg.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TAC Torace</strong></td>
+          <td>ASL Napoli 1</td>
+          <td>B (10 gg)</td>
+          <td><span class="semaforo sem-rosso"></span><strong style="color:var(--rosso)">34 giorni</strong></td>
+          <td>↑ +6 gg</td>
+          <td>07/04/26</td>
+        </tr>
+        <tr>
+          <td><strong>Visita Oncologica</strong></td>
+          <td>Regione Lombardia</td>
+          <td>U (72h)</td>
+          <td><span class="semaforo sem-verde"></span>2 giorni</td>
+          <td>→ stabile</td>
+          <td>08/04/26</td>
+        </tr>
+        <tr>
+          <td><strong>Endoscopia digestiva</strong></td>
+          <td>ASP Catania</td>
+          <td>D (120 gg)</td>
+          <td><span class="semaforo sem-giallo"></span>98 giorni</td>
+          <td>↓ -12 gg</td>
+          <td>06/04/26</td>
+        </tr>
+        <tr>
+          <td><strong>Biopsia cutanea</strong></td>
+          <td>AOU Torino</td>
+          <td>B (10 gg)</td>
+          <td><span class="semaforo sem-rosso"></span><strong style="color:var(--rosso)">22 giorni</strong></td>
+          <td>↑ +4 gg</td>
+          <td>09/04/26</td>
+        </tr>
+        <tr>
+          <td><strong>Ecografia addome</strong></td>
+          <td>ASL Roma 2</td>
+          <td>P (30 gg)</td>
+          <td><span class="semaforo sem-verde"></span>18 giorni</td>
+          <td>↓ -5 gg</td>
+          <td>08/04/26</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:0.75rem;color:var(--grigio-testo);margin-top:10px;">⚠️ Dati provenienti dai portali regionali. Alcune ASL non hanno aggiornato entro 7 giorni — segnalato.</div>
+  </div>
+
+  <!-- AZIONI CONSIGLIATE -->
+  <div class="azioni-section">
+    <div class="azioni-title">✅ Azioni Consigliate</div>
+    <div class="azione-item">
+      <div class="azione-num">1</div>
+      <div class="azione-testo"><strong>Entro oggi:</strong> verificare i requisiti del bando ASP Palermo per Anatomia Patologica. Scadenza 9 maggio, documentazione da preparare in anticipo.</div>
+    </div>
+    <div class="azione-item">
+      <div class="azione-num">2</div>
+      <div class="azione-testo"><strong>Questa settimana:</strong> leggere la circolare ministeriale sui nuovi standard di refertazione. Obbligatorio dal 1° luglio — valutare impatto operativo interno.</div>
+    </div>
+    <div class="azione-item">
+      <div class="azione-num">3</div>
+      <div class="azione-testo"><strong>Entro 25 aprile:</strong> valutare la candidatura per Direttore Sanitario AOU Bari. Profilo ad alta affinità con il settore dirigenziale.</div>
+    </div>
+    <div class="azione-item">
+      <div class="azione-num">4</div>
+      <div class="azione-testo"><strong>Monitorare:</strong> gara AOU Careggi per sistemi istocitopatologia — scadenza 15 maggio. Opportunità rilevante per laboratori del settore.</div>
+    </div>
+  </div>
+
+  <!-- PODCAST -->
+  <div class="podcast-section">
+    <div class="podcast-title">🎙 Versione Podcast — Briefing 2 min</div>
+    <div class="podcast-player">
+      <div class="play-btn" onclick="togglePlay(this)">▶</div>
+      <div class="podcast-info">
+        <div class="p-title">Report Sanitario — 10 aprile 2026</div>
+        <div class="p-sub">Durata stimata: 2 min 15 sec</div>
+      </div>
+      <div style="flex:2;display:flex;flex-direction:column;gap:5px;">
+        <div class="podcast-bar"><div class="podcast-bar-fill" id="pbar"></div></div>
+        <div class="podcast-time" id="ptime">0:00 / 2:15</div>
+      </div>
+    </div>
+    <div class="podcast-script">
+      <strong>Buongiorno. Sono le 7 di mattina del 10 aprile 2026. Ecco le tre notizie più importanti per il settore sanitario.</strong><br><br>
+      Primo: l'ASP di Palermo ha pubblicato un concorso per tre dirigenti medici in anatomia patologica. La scadenza è il 9 maggio. Se siete nel settore, vale la pena verificare i requisiti oggi.<br><br>
+      Secondo: il Ministero della Salute ha emesso ieri una circolare che aggiorna i tempi massimi di refertazione per l'anatomia patologica. Dieci giorni per le urgenze, venti per la routine. Le aziende sanitarie hanno 60 giorni per recepirla.<br><br>
+      Terzo: l'AOU Careggi di Firenze ha aperto una gara europea per sistemi automatizzati di istocitopatologia. Base d'asta oltre un milione di euro, scadenza a metà maggio.<br><br>
+      Sulle liste d'attesa, segnaliamo una criticità in crescita alla ASL Napoli 1 per la TAC torace: i tempi hanno superato i 34 giorni, con un aumento di 6 giorni rispetto alla settimana scorsa.<br><br>
+      <strong>Per oggi, la scadenza più urgente è quella per il Direttore Sanitario all'AOU di Bari: il 25 aprile. Buona giornata.</strong>
+    </div>
+  </div>
+
+  <div class="footer">Report generato automaticamente dall'assistente di monitoraggio strategico · Sanità italiana · 10 aprile 2026</div>
+</div>
+
+<script>
+function toggleSection(header) {
+  const body = header.parentElement.querySelector('.section-body');
+  const icon = header.querySelector('.toggle-icon');
+  body.classList.toggle('collapsed');
+  icon.style.transform = body.classList.contains('collapsed') ? 'rotate(-90deg)' : '';
+}
+
+let playing = false, timer = null, sec = 0, total = 135;
+function togglePlay(btn) {
+  if (!playing) {
+    playing = true;
+    btn.textContent = '⏸';
+    timer = setInterval(() => {
+      sec++;
+      if (sec >= total) { sec = total; clearInterval(timer); playing = false; btn.textContent = '▶'; }
+      document.getElementById('pbar').style.width = (sec/total*100) + '%';
+      document.getElementById('ptime').textContent = fmt(sec) + ' / ' + fmt(total);
+    }, 1000);
+  } else {
+    playing = false; btn.textContent = '▶'; clearInterval(timer);
+  }
+}
+function fmt(s) { return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
