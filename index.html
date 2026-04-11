@@ -3,560 +3,690 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Report Sanitario Giornaliero</title>
+<title>Report Sanitario Giornaliero — 11 Aprile 2026</title>
 <style>
   :root {
-    --blu: #1a3a5c;
-    --blu-chiaro: #2a5f8f;
-    --verde: #1e7d5e;
-    --verde-chiaro: #27a97d;
-    --arancio: #c45c1a;
-    --rosso: #b22c2c;
-    --grigio: #f4f6f8;
-    --grigio-testo: #5a6a7a;
-    --bordo: #dde3ea;
+    --blue-dark: #003366;
+    --blue-mid: #005499;
+    --blue-light: #0077cc;
+    --blue-pale: #e8f0fa;
+    --accent-green: #1a7a4a;
+    --accent-amber: #c97a00;
+    --accent-red: #b32020;
+    --grey-light: #f4f6f9;
+    --grey-mid: #dde3ed;
+    --text-main: #1a1a2e;
+    --text-muted: #555577;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: #eef1f5;
-    color: #1a2a3a;
-    min-height: 100vh;
-  }
-
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, var(--blu) 0%, var(--blu-chiaro) 100%);
-    color: white;
-    padding: 20px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-  }
-  .header-left { display: flex; align-items: center; gap: 14px; }
-  .header-icon {
-    width: 44px; height: 44px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-  }
-  .header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.01em; }
-  .header .subtitle { font-size: 0.82rem; opacity: 0.75; margin-top: 2px; }
-  .header-right { text-align: right; font-size: 0.82rem; opacity: 0.8; }
-  .header-right strong { display: block; font-size: 1rem; opacity: 1; }
-
-  .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
-
-  /* SINTESI CARDS */
-  .sintesi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px;
-    margin-bottom: 28px;
-  }
-  .sintesi-card {
-    background: white;
-    border-radius: 12px;
-    padding: 16px 18px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-    display: flex; flex-direction: column; gap: 6px;
-    border-top: 4px solid var(--blu-chiaro);
-    transition: transform 0.15s;
-    cursor: default;
-  }
-  .sintesi-card:hover { transform: translateY(-2px); }
-  .sintesi-card.verde { border-top-color: var(--verde-chiaro); }
-  .sintesi-card.arancio { border-top-color: var(--arancio); }
-  .sintesi-card.rosso { border-top-color: var(--rosso); }
-  .sintesi-card .num { font-size: 2rem; font-weight: 800; color: var(--blu); line-height: 1; }
-  .sintesi-card.verde .num { color: var(--verde); }
-  .sintesi-card.arancio .num { color: var(--arancio); }
-  .sintesi-card.rosso .num { color: var(--rosso); }
-  .sintesi-card .label { font-size: 0.78rem; color: var(--grigio-testo); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-
-  /* SEZIONI */
-  .section { margin-bottom: 22px; }
-  .section-header {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .section-header h2 {
-    font-size: 0.95rem; font-weight: 700;
-    color: var(--blu);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    flex: 1;
-  }
-  .section-badge {
-    background: var(--blu);
-    color: white;
-    border-radius: 20px;
-    padding: 2px 10px;
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
-  .toggle-icon { font-size: 1rem; color: var(--grigio-testo); transition: transform 0.2s; }
-  .section-body { display: flex; flex-direction: column; gap: 10px; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--grey-light); color: var(--text-main); font-size: 14px; }
+  header { background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%); color: white; padding: 24px 32px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  header .meta { font-size: 12px; opacity: 0.85; margin-top: 4px; }
+  .summary-bar { background: var(--blue-dark); color: white; display: flex; flex-wrap: wrap; gap: 16px; padding: 12px 32px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .summary-bar .card { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 8px 16px; min-width: 120px; text-align: center; }
+  .summary-bar .card .num { font-size: 26px; font-weight: 800; }
+  .summary-bar .card .lbl { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; }
+  .main { max-width: 1140px; margin: 24px auto; padding: 0 16px; }
+  .section { background: white; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .section-header { background: var(--blue-mid); color: white; padding: 14px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .section-header:hover { background: var(--blue-light); }
+  .section-header h2 { font-size: 15px; font-weight: 600; }
+  .section-header .badge { background: rgba(255,255,255,0.25); border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700; }
+  .section-body { padding: 20px; display: block; }
   .section-body.collapsed { display: none; }
-
-  /* CARD VOCE */
-  .voce-card {
-    background: white;
-    border-radius: 10px;
-    padding: 16px 18px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    border-left: 5px solid var(--blu-chiaro);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-  }
-  .voce-card.alta { border-left-color: var(--rosso); }
-  .voce-card.media { border-left-color: var(--arancio); }
-  .voce-card.bassa { border-left-color: var(--verde-chiaro); }
-  .voce-titolo { font-weight: 700; font-size: 0.92rem; margin-bottom: 4px; }
-  .voce-ente { font-size: 0.8rem; color: var(--grigio-testo); margin-bottom: 6px; }
-  .voce-meta { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    background: var(--grigio);
-    border-radius: 6px;
-    padding: 2px 9px;
-    font-size: 0.72rem;
-    color: #3a4a5a;
-    font-weight: 600;
-    display: flex; align-items: center; gap: 4px;
-  }
-  .tag.scadenza { background: #ffeaea; color: var(--rosso); }
-  .tag.area { background: #e8f4ff; color: var(--blu-chiaro); }
-  .voce-nota {
-    font-size: 0.78rem;
-    color: var(--grigio-testo);
-    font-style: italic;
-    margin-top: 6px;
-    border-top: 1px solid var(--bordo);
-    padding-top: 6px;
-  }
-  .rilevanza-badge {
-    align-self: start;
-    border-radius: 8px;
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-  }
-  .rilevanza-badge.alta { background: #ffeaea; color: var(--rosso); }
-  .rilevanza-badge.media { background: #fff3e0; color: var(--arancio); }
-  .rilevanza-badge.bassa { background: #e8f7f1; color: var(--verde); }
-
-  /* LISTE D'ATTESA */
-  .attesa-section { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 22px; }
-  .attesa-title { font-size: 0.95rem; font-weight: 700; color: var(--blu); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .attesa-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  .attesa-table th { background: var(--grigio); color: var(--grigio-testo); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; padding: 8px 10px; text-align: left; }
-  .attesa-table td { padding: 9px 10px; border-bottom: 1px solid var(--bordo); }
-  .attesa-table tr:last-child td { border-bottom: none; }
-  .attesa-table tr:hover td { background: #f8fafc; }
-  .semaforo { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
-  .sem-verde { background: var(--verde-chiaro); }
-  .sem-giallo { background: #f0b429; }
-  .sem-rosso { background: var(--rosso); }
-
-  /* AZIONI */
-  .azioni-section { background: linear-gradient(135deg, #f0f6ff 0%, #e8f4ec 100%); border-radius: 12px; padding: 20px 22px; margin-bottom: 22px; border: 1px solid var(--bordo); }
-  .azioni-title { font-size: 0.95rem; font-weight: 700; color: var(--blu); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
-  .azione-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
-  .azione-item:last-child { border-bottom: none; }
-  .azione-num { background: var(--blu); color: white; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-  .azione-testo { font-size: 0.85rem; line-height: 1.5; }
-  .azione-testo strong { color: var(--blu); }
-
-  /* PODCAST */
-  .podcast-section { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 22px; }
-  .podcast-title { font-size: 0.95rem; font-weight: 700; color: var(--blu); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .podcast-player {
-    background: var(--grigio);
-    border-radius: 10px;
-    padding: 16px 18px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .play-btn {
-    width: 44px; height: 44px;
-    background: var(--blu);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    font-size: 18px;
-    color: white;
-    flex-shrink: 0;
-    transition: background 0.15s;
-  }
-  .play-btn:hover { background: var(--blu-chiaro); }
-  .podcast-info { flex: 1; }
-  .podcast-info .p-title { font-weight: 700; font-size: 0.88rem; margin-bottom: 4px; }
-  .podcast-info .p-sub { font-size: 0.75rem; color: var(--grigio-testo); }
-  .podcast-bar { flex: 1; height: 4px; background: var(--bordo); border-radius: 4px; position: relative; }
-  .podcast-bar-fill { width: 0%; height: 100%; background: var(--blu-chiaro); border-radius: 4px; transition: width 0.1s; }
-  .podcast-time { font-size: 0.75rem; color: var(--grigio-testo); white-space: nowrap; }
-  .podcast-script {
-    margin-top: 14px;
-    background: #f8fafc;
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 0.83rem;
-    line-height: 1.7;
-    color: #2a3a4a;
-    border-left: 3px solid var(--blu-chiaro);
-  }
-
-  /* FOOTER */
-  .footer { text-align: center; font-size: 0.75rem; color: var(--grigio-testo); padding: 20px 0 10px; }
-
-  /* SEPARATORE */
-  .sep { height: 1px; background: var(--bordo); margin: 6px 0 16px; }
-
-  /* CHIP FILTRI */
-  .filtri { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-  .chip {
-    background: white;
-    border: 1.5px solid var(--bordo);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    color: var(--grigio-testo);
-  }
-  .chip.active, .chip:hover { background: var(--blu); color: white; border-color: var(--blu); }
+  .arrow { transition: transform 0.2s; }
+  .arrow.open { transform: rotate(180deg); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--blue-pale); color: var(--blue-dark); text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid var(--grey-mid); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--grey-mid); vertical-align: top; }
+  tr:hover td { background: var(--grey-light); }
+  .tag { display: inline-block; border-radius: 4px; padding: 2px 7px; font-size: 11px; font-weight: 600; margin: 1px; }
+  .tag-green { background: #d4edda; color: #155724; }
+  .tag-amber { background: #fff3cd; color: #856404; }
+  .tag-red { background: #f8d7da; color: #721c24; }
+  .tag-blue { background: #cce5ff; color: #004085; }
+  .tag-grey { background: #e2e3e5; color: #383d41; }
+  .nota { font-size: 11px; color: var(--text-muted); font-style: italic; }
+  .alert-box { border-left: 4px solid var(--accent-red); background: #fff5f5; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 14px; }
+  .alert-box.info { border-color: var(--blue-light); background: var(--blue-pale); }
+  .alert-box.success { border-color: var(--accent-green); background: #f0fff4; }
+  .alert-box.warning { border-color: var(--accent-amber); background: #fffbf0; }
+  .alert-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+  .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .region-card { border: 1px solid var(--grey-mid); border-radius: 8px; overflow: hidden; }
+  .region-card .rc-header { background: var(--blue-pale); padding: 10px 14px; font-weight: 700; color: var(--blue-dark); font-size: 13px; border-bottom: 1px solid var(--grey-mid); }
+  .region-card .rc-body { padding: 12px 14px; font-size: 12.5px; }
+  .region-card .rc-body p { margin-bottom: 6px; }
+  .region-card .rc-body ul { padding-left: 16px; }
+  .region-card .rc-body li { margin-bottom: 4px; }
+  .action-list { counter-reset: action-counter; }
+  .action-item { counter-increment: action-counter; display: flex; gap: 12px; align-items: flex-start; padding: 12px; border-radius: 8px; background: var(--blue-pale); margin-bottom: 10px; border-left: 4px solid var(--blue-light); }
+  .action-item::before { content: counter(action-counter); background: var(--blue-mid); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .action-item .azione-title { font-weight: 600; font-size: 13px; }
+  .action-item .azione-scad { font-size: 11px; color: var(--accent-amber); font-weight: 700; }
+  a { color: var(--blue-light); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .source-note { font-size: 11px; color: var(--text-muted); padding: 8px 12px; background: var(--grey-light); border-top: 1px solid var(--grey-mid); }
+  .no-news { color: var(--text-muted); font-style: italic; font-size: 13px; padding: 6px 0; }
+  footer { text-align: center; color: var(--text-muted); font-size: 11px; padding: 20px; margin-top: 10px; }
+  @media(max-width:600px){ .summary-bar { padding: 10px; } header { padding: 14px; } .main { padding: 0 8px; } }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-left">
-    <div class="header-icon">🏥</div>
-    <div>
-      <div class="header h1" style="font-size:1.2rem;font-weight:700;color:white;">Report Sanitario Giornaliero</div>
-      <div class="subtitle">Monitoraggio strategico — Sanità italiana</div>
-    </div>
-  </div>
-  <div class="header-right">
-    <strong>Venerdì, 10 aprile 2026</strong>
-    Generato alle 07:03
-  </div>
+<header>
+  <h1>🏥 Report Sanitario Strategico — Italia</h1>
+  <div class="meta">Generato il <strong>11 aprile 2026</strong> · Fonti consultate: Ministero Salute, AIFA, AGENAS, GURS, ASP Sicilia, Gazzetta Ufficiale, ANSA · Aggiornamento automatico giornaliero</div>
+</header>
+
+<div class="summary-bar">
+  <div class="card"><div class="num">7</div><div class="lbl">Bandi Concorsi</div></div>
+  <div class="card"><div class="num">5</div><div class="lbl">Incarichi Dirigenz.</div></div>
+  <div class="card"><div class="num">2</div><div class="lbl">Gare/Affidamenti</div></div>
+  <div class="card"><div class="num">3</div><div class="lbl">Notizie Min. Salute</div></div>
+  <div class="card"><div class="num">2</div><div class="lbl">Notizie AIFA</div></div>
+  <div class="card"><div class="num">2</div><div class="lbl">Notizie AGENAS</div></div>
+  <div class="card"><div class="num">5</div><div class="lbl">Azioni Consigliate</div></div>
 </div>
 
-<div class="container">
+<div class="main">
 
-  <!-- SINTESI -->
-  <div class="sintesi-grid">
-    <div class="sintesi-card">
-      <div class="num">12</div>
-      <div class="label">Bandi & Concorsi</div>
-    </div>
-    <div class="sintesi-card verde">
-      <div class="num">5</div>
-      <div class="label">Manifestaz. d'interesse</div>
-    </div>
-    <div class="sintesi-card arancio">
-      <div class="num">3</div>
-      <div class="label">Incarichi dirigenziali</div>
-    </div>
-    <div class="sintesi-card">
-      <div class="num">8</div>
-      <div class="label">Gare & Affidamenti</div>
-    </div>
-    <div class="sintesi-card rosso">
-      <div class="num">2</div>
-      <div class="label">Aggiorn. normativi</div>
-    </div>
-    <div class="sintesi-card">
-      <div class="num">4</div>
-      <div class="label">Upd. liste d'attesa</div>
-    </div>
+  <!-- ALERT PRINCIPALE -->
+  <div class="alert-box success">
+    <div class="alert-title">🎯 NOTIZIA DEL GIORNO — Fine commissariamento sanità Calabria (9 aprile 2026)</div>
+    Il Consiglio dei Ministri ha revocato il commissariamento della sanità calabrese dopo 17 anni. La Regione Calabria torna ad avere piena autonomia organizzativa, nomine e programmazione. La Calabria resta tuttavia soggetta al Piano di Rientro. Evento di rilievo sistemico per tutto il SSN.
   </div>
 
-  <!-- FILTRI -->
-  <div class="filtri">
-    <div class="chip active">Tutto</div>
-    <div class="chip">Bandi & Concorsi</div>
-    <div class="chip">Incarichi</div>
-    <div class="chip">Gare</div>
-    <div class="chip">Normativa</div>
-    <div class="chip">Alta priorità ⚠️</div>
+  <div class="alert-box warning">
+    <div class="alert-title">⚠️ AGENDA POLITICA — Meloni in Parlamento (9 aprile 2026): liste d'attesa "inaccettabili"</div>
+    La premier ha dichiarato che i tempi delle liste d'attesa nel SSN restano "non accettabili" e ha indicato il Ministro Schillaci come responsabile dell'accelerazione delle misure. È in arrivo un monitoraggio nazionale mirato per interventi mirati. Questo rafforza il contesto normativo e la pressione politica su ASL e Regioni.
   </div>
 
-  <!-- BANDI E CONCORSI -->
+  <!-- SEZIONE 1: BANDI E CONCORSI -->
   <div class="section">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div>🗂</div>
-      <h2>Bandi e Concorsi</h2>
-      <span class="section-badge">12</span>
-      <span class="toggle-icon">▼</span>
+    <div class="section-header" onclick="toggle(this)">
+      <h2>📋 1. BANDI E CONCORSI — Profili Strategici</h2>
+      <span><span class="badge">7 voci</span> <span class="arrow open">▼</span></span>
     </div>
-    <div class="sep"></div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Ente</th>
+            <th>Tipo</th>
+            <th>Profilo / Disciplina</th>
+            <th>Posti</th>
+            <th>Pubbl.</th>
+            <th>Scadenza</th>
+            <th>Nota Operativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ASP Ragusa</strong></td>
+            <td><span class="tag tag-blue">Concorso pubblico</span></td>
+            <td>Dirigente Medico (varie discipline): MEU 25, Igiene 10, OSSB 7, Ortopedia 8, Psichiatria 6</td>
+            <td><strong>56</strong></td>
+            <td>01/04/2026</td>
+            <td><strong style="color:var(--accent-red)">23/04/2026</strong></td>
+            <td class="nota">Invio esclusivo via PEC a concorsi@pec.asp.rg.it · <a href="https://www.asp.rg.it/avvisi" target="_blank">Bando →</a></td>
+          </tr>
+          <tr>
+            <td><strong>ASP Palermo</strong></td>
+            <td><span class="tag tag-blue">Maxi-concorso</span></td>
+            <td>Dirigente Medico varie discipline (incl. Anatomia Patologica 2, Patologia Clinica 8, Med. Trasfusionale 5, Igiene 40, OSSB 40)</td>
+            <td><strong>263</strong></td>
+            <td>01/2026</td>
+            <td>Verificare su sito</td>
+            <td class="nota">Domande tramite portale istituzionale <a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank">asppalermo.org →</a> · include 2 posti Anatomia Patologica</td>
+          </tr>
+          <tr>
+            <td><strong>ASP Catania</strong></td>
+            <td><span class="tag tag-blue">Riapertura termini</span></td>
+            <td>Dirigente Medico — Medicina Trasfusionale</td>
+            <td>1</td>
+            <td>03/2026</td>
+            <td><strong style="color:var(--accent-red)">30/04/2026</strong></td>
+            <td class="nota">Riapertura termini. Verificare su <a href="https://www.asp.ct.it" target="_blank">asp.ct.it →</a></td>
+          </tr>
+          <tr>
+            <td><strong>ASP Sicilia (varie)</strong></td>
+            <td><span class="tag tag-amber">Stabilizzazione</span></td>
+            <td>Personale precario dirigenziale sanitario e veterinario</td>
+            <td>n.d.</td>
+            <td>03/2026</td>
+            <td><strong style="color:var(--accent-red)">15/04/2026 ⏰</strong></td>
+            <td class="nota">Procedura di stabilizzazione · scadenza imminente · verificare su GURS</td>
+          </tr>
+          <tr>
+            <td><strong>A.O. Ospedali Riuniti Villa Sofia-Cervello (PA)</strong></td>
+            <td><span class="tag tag-blue">Concorso pubblico</span></td>
+            <td>207 assunzioni incl. Dirigente Biologo UOC Anatomia Patologica</td>
+            <td><strong>207</strong></td>
+            <td>2026</td>
+            <td>Verificare su sito</td>
+            <td class="nota"><a href="https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/bandi-di-concorso/" target="_blank">Bandi →</a> · include 1 Dirigente Biologo Anatomia Patologica</td>
+          </tr>
+          <tr>
+            <td><strong>ASP Agrigento</strong></td>
+            <td><span class="tag tag-grey">Concorso (scaduto)</span></td>
+            <td>Dirigente Medico — Ortopedia e Anatomia Patologica</td>
+            <td>n.d.</td>
+            <td>01/2026</td>
+            <td><del>29/03/2026</del> (scaduto)</td>
+            <td class="nota">Monitorare eventuali proroghe o nuovi bandi · <a href="https://www.aspagrigento.it" target="_blank">aspagrigento.it →</a></td>
+          </tr>
+          <tr>
+            <td><strong>ASL Napoli 3 Sud</strong></td>
+            <td><span class="tag tag-blue">Concorso pubblico</span></td>
+            <td>Dirigente Medico varie discipline</td>
+            <td><strong>56</strong></td>
+            <td>04/2026</td>
+            <td>Verificare su portale InPA</td>
+            <td class="nota">Campania · Domande tramite <a href="https://www.inpa.gov.it" target="_blank">InPA →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="source-note">Fonti: <a href="https://www.concorsi.it" target="_blank">Concorsi.it</a>, <a href="https://www.asp.rg.it/avvisi" target="_blank">ASP Ragusa</a>, <a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank">ASP Palermo</a>, <a href="https://qds.it/concorsi-sicilia-aprile-2026-bando-posti-candidature/" target="_blank">QDS</a>, <a href="https://www.concorsipubblici.com/concorsi/occupazione/pro/settore-sanita-898/loc/sicilia" target="_blank">ConcorsiPubblici.com</a></div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 2: MANIFESTAZIONI DI INTERESSE -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>🔍 2. MANIFESTAZIONI DI INTERESSE</h2>
+      <span><span class="badge">0 voci</span> <span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <p class="no-news">Nessuna manifestazione di interesse per incarichi dirigenziali o erogatori privati rilevata nella giornata odierna.</p>
+    </div>
+  </div>
+
+  <!-- SEZIONE 3: INCARICHI DIRIGENZIALI -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>🎖️ 3. INCARICHI DIRIGENZIALI (DG, DS, DA, Struttura Complessa)</h2>
+      <span><span class="badge">5 voci</span> <span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Ente</th>
+            <th>Regione</th>
+            <th>Incarico</th>
+            <th>GU/Rif.</th>
+            <th>Scadenza</th>
+            <th>Nota Operativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ASL Napoli 2 Nord – Frattamaggiore</strong></td>
+            <td>Campania</td>
+            <td>Direttore UOC Igiene e Sanità Pubblica — Dipartimento Prevenzione</td>
+            <td>GU 4ª Serie Speciale</td>
+            <td><strong style="color:var(--accent-red)">30/04/2026</strong></td>
+            <td class="nota">Per titoli e colloquio · incarico quinquennale</td>
+          </tr>
+          <tr>
+            <td><strong>ASL Campania</strong></td>
+            <td>Campania</td>
+            <td>Direttore UOC SERD — P.O. Torre Annunziata</td>
+            <td>GU 4ª Serie Speciale</td>
+            <td><strong style="color:var(--accent-red)">23/04/2026</strong></td>
+            <td class="nota">Per titoli e colloquio · incarico quinquennale</td>
+          </tr>
+          <tr>
+            <td><strong>ASL Campania — P.O. Ischia</strong></td>
+            <td>Campania</td>
+            <td>Direttore UOC Cardiologica e UTIC — P.O. Ischia</td>
+            <td>GU 4ª Serie Speciale</td>
+            <td><strong style="color:var(--accent-amber)">12/04/2026 ⏰</strong></td>
+            <td class="nota">Per titoli e colloquio · incarico quinquennale · scadenza molto vicina</td>
+          </tr>
+          <tr>
+            <td><strong>ASL Brindisi</strong></td>
+            <td>Puglia</td>
+            <td>Direttore UOC Patologia Clinica — P.O. A. Perrino di Brindisi</td>
+            <td>GU n.25 del 31/03/2026</td>
+            <td>Verificare (30 gg da pubb.)</td>
+            <td class="nota"><span class="tag tag-green">⭐ PRIORITÀ ALTA</span> · Disciplina Patologia Clinica · Per titoli e colloquio</td>
+          </tr>
+          <tr>
+            <td><strong>AO S. Giovanni Addolorata — Roma</strong></td>
+            <td>Lazio</td>
+            <td>Direttore UOC Fisica Medica (Fisica Sanitaria)</td>
+            <td>GU n.27 del 07/04/2026</td>
+            <td>Circa 30/04/2026</td>
+            <td class="nota">Per titoli e colloquio · incarico quinquennale</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert-box info" style="margin-top:14px;">
+        <div class="alert-title">ℹ️ Nota su incarichi DG/DS/DA</div>
+        Il Ministero della Salute ha pubblicato l'avviso biennale di aggiornamento dell'Elenco Nazionale Idonei all'incarico di Direttore Generale SSN. La Regione Basilicata ha chiuso le domande per aggiornamento elenchi DS e DA l'8 aprile 2026. Monitorare GURS per eventuali avvisi siciliani analoghi.
+      </div>
+      <div class="source-note">Fonti: <a href="https://www.concorsi.it/concorsi-pubblici/direttore-di-struttura-complessa-lazio.html" target="_blank">Concorsi.it Lazio</a>, <a href="https://www.concorsipubblici.com" target="_blank">ConcorsiPubblici.com</a>, GU 4ª Serie Speciale (vari numeri marzo-aprile 2026)</div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 4: GARE E AFFIDAMENTI -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>📦 4. GARE E AFFIDAMENTI — Servizi Medici e Prestazioni Specialistiche</h2>
+      <span><span class="badge">2 voci</span> <span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Ente</th>
+            <th>Tipo</th>
+            <th>Oggetto</th>
+            <th>Data</th>
+            <th>Nota Operativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Regione Puglia — Aziende Sanitarie</strong></td>
+            <td><span class="tag tag-green">Accordo/Abbattimento liste attesa</span></td>
+            <td>Piani sperimentali di recupero liste d'attesa: 65.034 prestazioni anticipate (incluse visite specialistiche, esami diagnostici e 2.376 interventi chirurgici)</td>
+            <td>Aprile 2026</td>
+            <td class="nota">Possibili appalti/accordi con privati accreditati per ulteriori volumi · monitorare gare ANAC</td>
+          </tr>
+          <tr>
+            <td><strong>Regione Lazio</strong></td>
+            <td><span class="tag tag-amber">Misura regolamentare</span></td>
+            <td>Approvato tempario per 63 prestazioni specialistiche "critiche" per abbattimento liste d'attesa</td>
+            <td>2026</td>
+            <td class="nota">Possibile base per affidamenti a strutture private accreditate · verificare su <a href="https://www.salutelazio.it" target="_blank">salutelazio.it →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="no-news" style="margin-top:10px;">Nessuna gara specifica per anatomia patologica, istocitopatologia o laboratorio analisi in service rilevata oggi. Monitoraggio continuativo raccomandato su ANAC TED.</p>
+      <div class="source-note">Fonti: <a href="https://www.ansa.it/puglia/notizie/2026/04/10/liste-dattesa-in-puglia-regione-anticipate-65.034-prestazioni_c8c8714a-ab77-4ba5-b4bf-b1f778b23db5.html" target="_blank">ANSA Puglia</a>, <a href="https://www.quotidianosanita.it/regioni-e-asl/liste-d-attesa-regione-lazio-approva-tempario-per-prestazioni-critiche/" target="_blank">QuotidianoSanità</a></div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 5: MINISTERO DELLA SALUTE -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>🏛️ 5. MINISTERO DELLA SALUTE</h2>
+      <span><span class="badge">3 voci</span> <span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <div class="alert-box warning">
+        <div class="alert-title">⚠️ Direttiva politica (9 aprile 2026) — Liste d'attesa priorità governo</div>
+        La Premier Meloni ha indicato il Ministro Schillaci responsabile delle liste d'attesa nel SSN. Dichiarati "inaccettabili" i tempi di attesa attuali. In arrivo un sistema di monitoraggio nazionale potenziato per interventi mirati. Impatto atteso: accelerazione piani regionali, possibili nuove risorse vincolate.
+        <br><a href="https://www.sanita33.it/governo-e-parlamento/7335/liste-d-attesa-meloni-tempi-ancora-lunghi-in-arrivo-monitoraggio-nazionale-per-interventi-mirati.html" target="_blank" style="font-size:11px;">Leggi su Sanità33 →</a>
+      </div>
+      <div class="alert-box info">
+        <div class="alert-title">ℹ️ Circolare Min. Salute n. 24945 — 19 marzo 2026</div>
+        Circolare su segnalazione incidenti con dispositivi medici e avvio del nuovo sistema informativo NSIS-Dispovigilance per la rete nazionale di vigilanza sui dispositivi medici. Rilevante per strutture di anatomia patologica e laboratori.
+        <br><a href="https://www.certifico.com/marcatura-ce/news-marcatura-ce/circolare-ministero-della-salute-n-24945-del-19-marzo-2026" target="_blank" style="font-size:11px;">Dettagli circolare →</a>
+      </div>
+      <div class="alert-box info">
+        <div class="alert-title">ℹ️ Bozza Circolare Influenza 2026-2027</div>
+        È in circolazione tra le Regioni la bozza della circolare ministeriale per la campagna vaccinale influenza 2026-2027. HappyAgeing sollecita la pubblicazione ufficiale entro maggio 2026 per consentire la pianificazione regionale.
+        <br><a href="https://www.happyageing.it/influenza-happyageing-sollecita-la-rapida-pubblicazione-della-circolare-ministeriale/" target="_blank" style="font-size:11px;">Leggi →</a>
+      </div>
+      <div class="source-note">Fonti: <a href="https://www.salute.gov.it" target="_blank">Ministero della Salute</a>, <a href="https://www.ansa.it/sito/notizie/politica/2026/04/09/sicurezza-e-liste-dattesa-i-compiti-per-i-ministeri_b59ea05a-42b9-4401-8693-b569ec158f70.html" target="_blank">ANSA 09/04/2026</a></div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 6: AGENAS -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>📊 6. AGENAS</h2>
+      <span><span class="badge">2 voci</span> <span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <div class="alert-box info">
+        <div class="alert-title">📋 Report Annuale 2025 — Monitoraggio strutture sanitarie accreditate</div>
+        AGENAS ha pubblicato il Report Annuale 2025 sul monitoraggio delle strutture sanitarie e socio-sanitarie accreditate (ospedali pubblici e privati per acuti e post-acuti, incluse per la prima volta le residenze psichiatriche). Consultabile tramite il Portale Statistico AGENAS.
+        <br><a href="https://www.agenas.gov.it/aree-tematiche/comunicazione/primo-piano/2693-agenas-pubblica-il-report-annuale-2025-sul-monitoraggio-delle-strutture-sanitarie-accreditate" target="_blank" style="font-size:11px;">Leggi su AGENAS →</a>
+      </div>
+      <div class="alert-box info">
+        <div class="alert-title">📢 Albo 2026 AGENAS — Esperti, Collaboratori e Ricercatori</div>
+        AGENAS ha aperto l'Albo 2026 per l'inserimento di esperti, collaboratori e ricercatori. Opportunità per professionisti sanitari specializzati in valutazione, accreditamento e monitoraggio LEA.
+        <br><a href="https://www.agenas.gov.it/aree-tematiche/comunicazione/primo-piano/2739-agenas-apre-l%E2%80%99albo-2026-per-esperti,-collaboratori-e-ricercatori" target="_blank" style="font-size:11px;">Leggi su AGENAS →</a>
+      </div>
+      <div class="alert-box warning">
+        <div class="alert-title">⚠️ Piattaforma AGENAS liste d'attesa — criticità segnalata</div>
+        L'Associazione Luca Coscioni ha denunciato che la piattaforma AGENAS per il monitoraggio delle liste d'attesa è "inutile e non aggiornata". I dati disponibili risalgono a dicembre 2025 ma sono stati diffusi solo il 15 gennaio 2026 (3 mesi di ritardo). Criticità sistemica per il monitoraggio nazionale.
+        <br><a href="https://www.quotidianosanita.it/lavoro-e-professioni/liste-d-attesa-l-associazione-luca-coscioni-piattaforma-agenas-inutile-e-non-aggiornata/" target="_blank" style="font-size:11px;">Leggi su QuotidianoSanità →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 7: AIFA -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>💊 7. AIFA — Agenzia Italiana del Farmaco</h2>
+      <span><span class="badge">2 voci</span> <span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <div class="alert-box info">
+        <div class="alert-title">📋 Approvati Regolamenti AIFA Ascolta e AIFA Incontra (8 aprile 2026)</div>
+        Pubblicati in Gazzetta Ufficiale i Regolamenti per la governance partecipativa con pazienti e stakeholder. Previsti incontri trimestrali e Registro della Trasparenza pubblicamente accessibile. Nuovi canali di dialogo per decisioni su autorizzazioni, rimborsabilità e note.
+        <br><a href="https://www.socialfarma.it/aifa-ascolta-e-aifa-incontra-approvati-i-regolamenti-per-una-governance-aperta-e-trasparente/" target="_blank" style="font-size:11px;">Leggi →</a>
+      </div>
+      <div class="alert-box info">
+        <div class="alert-title">📅 Riunione CSE AIFA — 13-17 aprile 2026</div>
+        La Commissione Scientifica e Economica del Farmaco si riunisce la prossima settimana. All'ordine del giorno: autorizzazioni nuovi farmaci, negoziazione prezzi e rimborsabilità. Da seguire per eventuali nuove note o variazioni di classe.
+        <br><a href="https://www.guidausofarmaci.it/news/programma-della-riunione-della-commissione-scientifica-e-economica-del-farmaco-cse-di-aifa.php" target="_blank" style="font-size:11px;">Programma CSE →</a>
+      </div>
+      <p class="no-news">Nessuna nuova autorizzazione o nota AIFA di rilievo immediato rilevata in data odierna.</p>
+    </div>
+  </div>
+
+  <!-- SEZIONE 8: LISTE D'ATTESA -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <h2>⏱️ 8. LISTE D'ATTESA — Monitoraggio Regionale</h2>
+      <span><span class="badge">aggiornate</span> <span class="arrow open">▼</span></span>
+    </div>
     <div class="section-body">
 
-      <div class="voce-card alta">
-        <div>
-          <div class="voce-titolo">Concorso pubblico per n. 3 Dirigenti Medici — Anatomia Patologica</div>
-          <div class="voce-ente">ASP Palermo · G.U. Serie Concorsi n. 28 del 09/04/2026</div>
-          <div class="voce-meta">
-            <span class="tag scadenza">⏰ Scadenza: 09/05/2026</span>
-            <span class="tag area">📍 Sicilia</span>
-            <span class="tag">👤 Specializzazione richiesta</span>
-          </div>
-          <div class="voce-nota">Bando di interesse diretto per profili di anatomia patologica. Verificare requisiti di anzianità di servizio.</div>
-        </div>
-        <span class="rilevanza-badge alta">● Alta</span>
+      <div class="alert-box warning" style="margin-bottom:16px;">
+        <div class="alert-title">⚠️ Avvertenza metodologica</div>
+        I dati quantitativi regionali più recenti pubblicati da AGENAS risalgono a dicembre 2025 (diffusi con 3 mesi di ritardo). I dati di dettaglio riportati di seguito si basano su fonti regionali aggiornate ad aprile 2026 dove disponibili, con indicazione della fonte. I dati AGENAS per le singole regioni sono da considerarsi "potenzialmente non aggiornati".
       </div>
 
-      <div class="voce-card alta">
-        <div>
-          <div class="voce-titolo">Avviso pubblico per incarico di Direttore Sanitario</div>
-          <div class="voce-ente">Azienda Ospedaliera Universitaria "Policlinico" di Bari</div>
-          <div class="voce-meta">
-            <span class="tag scadenza">⏰ Scadenza: 25/04/2026</span>
-            <span class="tag area">📍 Puglia</span>
-            <span class="tag">📋 Incarico a tempo determinato</span>
-          </div>
-          <div class="voce-nota">Esperienza minima richiesta 5 anni in ruolo dirigenziale sanitario. Colloquio previsto entro 30 giorni dalla scadenza.</div>
-        </div>
-        <span class="rilevanza-badge alta">● Alta</span>
-      </div>
+      <h3 style="color:var(--blue-dark); margin-bottom:10px; font-size:14px;">PUGLIA — Dati più aggiornati (10 aprile 2026)</h3>
+      <table style="margin-bottom:20px;">
+        <thead><tr><th>Indicatore</th><th>Valore</th><th>Nota</th></tr></thead>
+        <tbody>
+          <tr><td>Persone contattate (piano sperimentale)</td><td><strong>127.672</strong></td><td>di cui 115.798 per visite/esami, 11.874 per ricoveri</td></tr>
+          <tr><td>Prestazioni anticipate totali</td><td><strong>65.034</strong></td><td>62.658 visite/esami + 2.376 interventi chirurgici</td></tr>
+          <tr><td>% codici urgenti (U+B) recuperati</td><td><strong>67%</strong></td><td>Anticipo mediano U: 70 giorni, B: 83 giorni</td></tr>
+          <tr><td>Fonte</td><td colspan="2"><a href="https://www.ansa.it/puglia/notizie/2026/04/10/liste-dattesa-in-puglia-regione-anticipate-65.034-prestazioni_c8c8714a-ab77-4ba5-b4bf-b1f778b23db5.html" target="_blank">ANSA Puglia — 10/04/2026</a> · Dato recente ✅</td></tr>
+        </tbody>
+      </table>
 
-      <div class="voce-card media">
-        <div>
-          <div class="voce-titolo">Concorso per n. 6 Tecnici di Laboratorio Biomedico</div>
-          <div class="voce-ente">ASL Roma 1 · Boll. Reg. Lazio n. 30 del 08/04/2026</div>
-          <div class="voce-meta">
-            <span class="tag scadenza">⏰ Scadenza: 30/04/2026</span>
-            <span class="tag area">📍 Lazio</span>
-            <span class="tag">🎓 Laurea triennale</span>
-          </div>
-          <div class="voce-nota">Profili tecnici per laboratorio analisi. Possibile mobilità per personale già in ruolo SSN.</div>
-        </div>
-        <span class="rilevanza-badge media">● Media</span>
-      </div>
+      <h3 style="color:var(--blue-dark); margin-bottom:10px; font-size:14px;">LAZIO</h3>
+      <table style="margin-bottom:20px;">
+        <thead><tr><th>Indicatore</th><th>Stato</th></tr></thead>
+        <tbody>
+          <tr><td>Approvato tempario per 63 prestazioni critiche</td><td><span class="tag tag-amber">In attuazione</span></td></tr>
+          <tr><td>Fonte</td><td><a href="https://www.quotidianosanita.it/regioni-e-asl/liste-d-attesa-regione-lazio-approva-tempario-per-prestazioni-critiche/" target="_blank">QuotidianoSanità</a> · ⚠️ Aggiornamento: data non precisa</td></tr>
+        </tbody>
+      </table>
 
+      <h3 style="color:var(--blue-dark); margin-bottom:10px; font-size:14px;">SICILIA</h3>
+      <table style="margin-bottom:20px;">
+        <thead><tr><th>Indicatore</th><th>Stato</th></tr></thead>
+        <tbody>
+          <tr><td>Finanziamento statale 2024-2026 (personale medico)</td><td>€ 16.160.000 (quota regionale SSN) + € 6.464.000 (comparto)</td></tr>
+          <tr><td>Piano Operativo di Recupero Lista d'Attesa</td><td><span class="tag tag-amber">In corso — D.A. n.1367/2023 e aggiornamenti</span></td></tr>
+          <tr><td>Dati AGENAS specifici</td><td><span class="tag tag-red">⚠️ Non aggiornati (dic 2025) — dato non affidabile per oggi</span></td></tr>
+          <tr><td>Fonte</td><td><a href="https://siciliamedica.com/lavoro/liste-dattesa-sul-tavolo-della-conferenza-stato-regioni-il-decreto-da-27-milioni-cosa-spetta-alla-sicilia/" target="_blank">SiciliaMediaca</a>, <a href="https://www.regione.sicilia.it/sites/default/files/2023-12/Allegato%20al%20D.A.%20n1367%20del%2014%20dicembre%202023.pdf" target="_blank">D.A. 1367/2023</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="color:var(--blue-dark); margin-bottom:10px; font-size:14px;">ALTRE REGIONI (Campania, Lombardia, Toscana)</h3>
+      <p class="no-news">Nessun dato aggiornato ad aprile 2026 rilevato dalle fonti consultate. Dati disponibili solo tramite portale AGENAS (aggiornato a dic. 2025, ritenuto non affidabile per analisi giornaliera).</p>
+
+      <h3 style="color:var(--blue-dark); margin:14px 0 10px; font-size:14px;">Standard LEA di riferimento</h3>
+      <table>
+        <thead><tr><th>Classe</th><th>Codice</th><th>Standard massimo</th></tr></thead>
+        <tbody>
+          <tr><td>Urgente</td><td><strong>U</strong></td><td>72 ore</td></tr>
+          <tr><td>Breve</td><td><strong>B</strong></td><td>10 giorni</td></tr>
+          <tr><td>Differibile</td><td><strong>D</strong></td><td>30 giorni</td></tr>
+          <tr><td>Programmabile</td><td><strong>P</strong></td><td>120 giorni</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <!-- GARE E AFFIDAMENTI -->
+  <!-- SEZIONE 9: ANALISI REGIONALE -->
   <div class="section">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div>📦</div>
-      <h2>Gare & Affidamenti</h2>
-      <span class="section-badge">8</span>
-      <span class="toggle-icon">▼</span>
+    <div class="section-header" onclick="toggle(this)">
+      <h2>🗺️ 9. ANALISI REGIONALE</h2>
+      <span><span class="arrow open">▼</span></span>
     </div>
-    <div class="sep"></div>
     <div class="section-body">
+      <div class="region-grid">
 
-      <div class="voce-card media">
-        <div>
-          <div class="voce-titolo">Gara europea per fornitura sistemi automatizzati istocitopatologia</div>
-          <div class="voce-ente">AOU Careggi Firenze · CIG: 98134520AB</div>
-          <div class="voce-meta">
-            <span class="tag scadenza">⏰ Scadenza offerte: 15/05/2026</span>
-            <span class="tag area">📍 Toscana</span>
-            <span class="tag">💶 Base d'asta: € 1.200.000</span>
+        <div class="region-card">
+          <div class="rc-header">🏝️ SICILIA</div>
+          <div class="rc-body">
+            <p><strong>Novità:</strong></p>
+            <ul>
+              <li>ASP Ragusa: maxi-concorso 56 dirigenti medici in corso (scad. 23/4)</li>
+              <li>ASP Palermo: 263 posti aperti (incl. 2 Anatomia Patologica, 8 Patologia Clinica)</li>
+              <li>Stabilizzazione personale precario dirigenziale (scad. 15/4 ⏰)</li>
+              <li>GURS: digitalizzazione completa dal gennaio 2026</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Criticità:</strong></p>
+            <ul>
+              <li>Dati liste d'attesa AGENAS non aggiornati</li>
+              <li>Carenze di personale in specialità rare (med. trasfusionale, anatomia patologica)</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Opportunità:</strong></p>
+            <ul>
+              <li>2 posti dirigente medico Anatomia Patologica (ASP Palermo)</li>
+              <li>1 dirigente biologo Anatomia Patologica (Villa Sofia-Cervello)</li>
+              <li>Piano abbattimento liste attesa: possibili accordi con privati</li>
+            </ul>
           </div>
-          <div class="voce-nota">Procedura aperta sopra soglia. Criterio di aggiudicazione: offerta economicamente più vantaggiosa.</div>
         </div>
-        <span class="rilevanza-badge alta">● Alta</span>
-      </div>
 
-      <div class="voce-card bassa">
-        <div>
-          <div class="voce-titolo">Affidamento diretto servizi di sterilizzazione strumentario</div>
-          <div class="voce-ente">ASL Benevento</div>
-          <div class="voce-meta">
-            <span class="tag area">📍 Campania</span>
-            <span class="tag">💶 Importo: € 48.000</span>
-            <span class="tag">📋 Affidamento diretto</span>
+        <div class="region-card">
+          <div class="rc-header">🏛️ LAZIO</div>
+          <div class="rc-body">
+            <p><strong>Novità:</strong></p>
+            <ul>
+              <li>Tempario per 63 prestazioni critiche (liste attesa)</li>
+              <li>Incarico Direttore UOC Fisica Medica — AO S. Giovanni Addolorata (GU 7/4)</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Criticità:</strong></p>
+            <ul>
+              <li>Liste d'attesa ancora critiche per prestazioni specialistiche</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Opportunità:</strong></p>
+            <ul>
+              <li>Accordi con privati per prestazioni critica (tempario approvato)</li>
+              <li>Monitorare ASL Roma 1 e AOU Tor Vergata per nuovi bandi</li>
+            </ul>
           </div>
-          <div class="voce-nota">Procedura sotto soglia. Già aggiudicato. Pubblicato per trasparenza.</div>
         </div>
-        <span class="rilevanza-badge bassa">● Bassa</span>
-      </div>
 
+        <div class="region-card">
+          <div class="rc-header">🌿 PUGLIA</div>
+          <div class="rc-body">
+            <p><strong>Novità:</strong></p>
+            <ul>
+              <li>65.034 prestazioni anticipate con piano sperimentale (10/4)</li>
+              <li>Incarico UOC Patologia Clinica P.O. Perrino Brindisi (GU 31/3) <span class="tag tag-green">⭐</span></li>
+              <li>Incarico UOC Neurochirurgia (GU 27/3)</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Criticità:</strong></p>
+            <ul>
+              <li>Anticipo mediano codici urgenti ancora di 70-83 giorni (sopra standard LEA)</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Opportunità:</strong></p>
+            <ul>
+              <li>Forte spinta per accordi con erogatori privati di specialistica ambulatoriale</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="rc-header">🌋 CAMPANIA</div>
+          <div class="rc-body">
+            <p><strong>Novità:</strong></p>
+            <ul>
+              <li>Incarico Dir. UOC Patologia Clinica P.O. San Paolo (Napoli)</li>
+              <li>Incarico Dir. SERD Torre Annunziata (scad. 23/4)</li>
+              <li>Incarico Dir. Igiene Sanità Pubblica ASL NA2N (scad. 30/4)</li>
+              <li>Incarico Dir. Cardiologica P.O. Ischia (scad. 12/4 ⏰)</li>
+              <li>ASL Napoli 3 Sud: 56 posti dirigente medico</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Criticità:</strong></p>
+            <ul>
+              <li>Carenza croniche di dirigenti in specialità critiche</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Opportunità:</strong></p>
+            <ul>
+              <li>Incarico UOC Patologia Clinica (alta priorità per il settore)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="rc-header">🏭 LOMBARDIA</div>
+          <div class="rc-body">
+            <p><strong>Novità:</strong></p>
+            <ul>
+              <li>Nessuna novità specifica rilevata nella giornata odierna.</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Monitorare:</strong></p>
+            <ul>
+              <li><a href="https://www.atsmilano.it" target="_blank">ATS Milano</a> per eventuali gare/bandi</li>
+              <li>ASST regionali per concorsi dirigenziali</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="rc-header">🌻 TOSCANA</div>
+          <div class="rc-body">
+            <p><strong>Novità:</strong></p>
+            <ul>
+              <li>ESTAR: procedura concorsuale per Dirigente Medico Anatomia Patologica (60/2024/CON — graduatoria attiva fino al 22/12/2026)</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Monitorare:</strong></p>
+            <ul>
+              <li><a href="https://www.estar.toscana.it" target="_blank">ESTAR Toscana</a> per nuovi bandi</li>
+              <li>AOU Careggi per gare prestazioni specialistiche</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="rc-header">🔔 CALABRIA — Evento straordinario</div>
+          <div class="rc-body">
+            <p><strong>⭐ Fine commissariamento sanità (9 aprile 2026)</strong></p>
+            <p>Dopo 17 anni il Governo ha revocato il commissariamento della sanità calabrese. La Regione torna ad avere piena autonomia su organizzazione, nomine e programmazione. Resta vincolata al Piano di Rientro.</p>
+            <p style="margin-top:8px;"><span class="tag tag-green">Implicazioni per il settore:</span> Possibile accelerazione di procedure di nomina DG/DS/DA nelle aziende calabresi. Monitorare CGIL e organi regionali per eventuali conflitti nella transizione.</p>
+            <a href="https://www.calabriainchieste.it/2026/04/09/sanita-calabria-fine-del-commissariamento-dopo-17-anni-svolta-storica/" target="_blank" style="font-size:11px;">Leggi su CalabriaInchieste →</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
-  <!-- AGGIORNAMENTI NORMATIVI -->
+  <!-- SEZIONE 10: AZIONI CONSIGLIATE -->
   <div class="section">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div>📜</div>
-      <h2>Aggiornamenti Normativi</h2>
-      <span class="section-badge">2</span>
-      <span class="toggle-icon">▼</span>
+    <div class="section-header" onclick="toggle(this)">
+      <h2>✅ 10. AZIONI CONSIGLIATE — Priorità Operative</h2>
+      <span><span class="badge">5 azioni</span> <span class="arrow open">▼</span></span>
     </div>
-    <div class="sep"></div>
     <div class="section-body">
+      <div class="action-list">
 
-      <div class="voce-card alta">
-        <div>
-          <div class="voce-titolo">Circolare Min. Salute: nuovi standard tempi massimi di refertazione anatomia patologica</div>
-          <div class="voce-ente">Ministero della Salute · Prot. n. 0012347 del 09/04/2026</div>
-          <div class="voce-meta">
-            <span class="tag area">📍 Nazionale</span>
-            <span class="tag">📋 Obbligatorio dal 01/07/2026</span>
+        <div class="action-item">
+          <div>
+            <div class="azione-title">⚡ URGENTE — Verifica stabilizzazione personale precario dirigenziale Sicilia</div>
+            <div class="azione-scad">⏰ Scadenza: 15 aprile 2026 (4 giorni)</div>
+            <p style="font-size:12px; margin-top:4px;">Verificare i requisiti e completare eventuale domanda di stabilizzazione per personale precario dirigenziale sanitario e veterinario siciliano. Controllare GURS e siti ASP di riferimento.</p>
           </div>
-          <div class="voce-nota">Aggiornamento dei LEA per i tempi di refertazione: 10 gg per urgenti, 20 gg per routine. Recepimento regionale entro 60 giorni.</div>
         </div>
-        <span class="rilevanza-badge alta">● Alta</span>
-      </div>
 
-    </div>
-  </div>
+        <div class="action-item">
+          <div>
+            <div class="azione-title">⚡ URGENTE — Valutare domanda per incarico UOC Patologia Clinica P.O. Perrino (Brindisi)</div>
+            <div class="azione-scad">⏰ Scadenza: ~30 aprile 2026 (verifica su GU n.25 del 31/3/2026)</div>
+            <p style="font-size:12px; margin-top:4px;">L'incarico quinquennale di Direttore UOC Patologia Clinica all'ASL Brindisi è un'opportunità di alto rilievo strategico per il settore. Acquisire il testo del bando dalla GU e verificare requisiti.</p>
+          </div>
+        </div>
 
-  <!-- LISTE D'ATTESA -->
-  <div class="attesa-section">
-    <div class="attesa-title">
-      ⏳ Liste d'Attesa — Aggiornamento settimanale
-    </div>
-    <table class="attesa-table">
-      <thead>
-        <tr>
-          <th>Prestazione</th>
-          <th>Regione / ASL</th>
-          <th>Classe priorità</th>
-          <th>Tempo medio attesa</th>
-          <th>Andamento</th>
-          <th>Agg.</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>TAC Torace</strong></td>
-          <td>ASL Napoli 1</td>
-          <td>B (10 gg)</td>
-          <td><span class="semaforo sem-rosso"></span><strong style="color:var(--rosso)">34 giorni</strong></td>
-          <td>↑ +6 gg</td>
-          <td>07/04/26</td>
-        </tr>
-        <tr>
-          <td><strong>Visita Oncologica</strong></td>
-          <td>Regione Lombardia</td>
-          <td>U (72h)</td>
-          <td><span class="semaforo sem-verde"></span>2 giorni</td>
-          <td>→ stabile</td>
-          <td>08/04/26</td>
-        </tr>
-        <tr>
-          <td><strong>Endoscopia digestiva</strong></td>
-          <td>ASP Catania</td>
-          <td>D (120 gg)</td>
-          <td><span class="semaforo sem-giallo"></span>98 giorni</td>
-          <td>↓ -12 gg</td>
-          <td>06/04/26</td>
-        </tr>
-        <tr>
-          <td><strong>Biopsia cutanea</strong></td>
-          <td>AOU Torino</td>
-          <td>B (10 gg)</td>
-          <td><span class="semaforo sem-rosso"></span><strong style="color:var(--rosso)">22 giorni</strong></td>
-          <td>↑ +4 gg</td>
-          <td>09/04/26</td>
-        </tr>
-        <tr>
-          <td><strong>Ecografia addome</strong></td>
-          <td>ASL Roma 2</td>
-          <td>P (30 gg)</td>
-          <td><span class="semaforo sem-verde"></span>18 giorni</td>
-          <td>↓ -5 gg</td>
-          <td>08/04/26</td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="font-size:0.75rem;color:var(--grigio-testo);margin-top:10px;">⚠️ Dati provenienti dai portali regionali. Alcune ASL non hanno aggiornato entro 7 giorni — segnalato.</div>
-  </div>
+        <div class="action-item">
+          <div>
+            <div class="azione-title">📋 IMPORTANTE — Monitorare ASP Palermo concorso 263 posti (2 Anatomia Patologica, 8 Patologia Clinica)</div>
+            <div class="azione-scad">⏰ Verificare scadenza su asppalermo.org</div>
+            <p style="font-size:12px; margin-top:4px;">Il maxi-concorso ASP Palermo include 2 posti in Anatomia Patologica e 8 in Patologia Clinica. Consultare <a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank">asppalermo.org →</a> per scadenza e modalità. Alta priorità per il settore.</p>
+          </div>
+        </div>
 
-  <!-- AZIONI CONSIGLIATE -->
-  <div class="azioni-section">
-    <div class="azioni-title">✅ Azioni Consigliate</div>
-    <div class="azione-item">
-      <div class="azione-num">1</div>
-      <div class="azione-testo"><strong>Entro oggi:</strong> verificare i requisiti del bando ASP Palermo per Anatomia Patologica. Scadenza 9 maggio, documentazione da preparare in anticipo.</div>
-    </div>
-    <div class="azione-item">
-      <div class="azione-num">2</div>
-      <div class="azione-testo"><strong>Questa settimana:</strong> leggere la circolare ministeriale sui nuovi standard di refertazione. Obbligatorio dal 1° luglio — valutare impatto operativo interno.</div>
-    </div>
-    <div class="azione-item">
-      <div class="azione-num">3</div>
-      <div class="azione-testo"><strong>Entro 25 aprile:</strong> valutare la candidatura per Direttore Sanitario AOU Bari. Profilo ad alta affinità con il settore dirigenziale.</div>
-    </div>
-    <div class="azione-item">
-      <div class="azione-num">4</div>
-      <div class="azione-testo"><strong>Monitorare:</strong> gara AOU Careggi per sistemi istocitopatologia — scadenza 15 maggio. Opportunità rilevante per laboratori del settore.</div>
-    </div>
-  </div>
+        <div class="action-item">
+          <div>
+            <div class="azione-title">🔔 AGENDA — Seguire riunione CSE AIFA (13-17 aprile 2026)</div>
+            <div class="azione-scad">📅 13-17 aprile 2026</div>
+            <p style="font-size:12px; margin-top:4px;">La Commissione Scientifica e Economica AIFA si riunisce la prossima settimana. Monitorare decisioni su nuovi farmaci, note di rimborsabilità e variazioni di classe che possano impattare sul settore specialistico.</p>
+          </div>
+        </div>
 
-  <!-- PODCAST -->
-  <div class="podcast-section">
-    <div class="podcast-title">🎙 Versione Podcast — Briefing 2 min</div>
-    <div class="podcast-player">
-      <div class="play-btn" onclick="togglePlay(this)">▶</div>
-      <div class="podcast-info">
-        <div class="p-title">Report Sanitario — 10 aprile 2026</div>
-        <div class="p-sub">Durata stimata: 2 min 15 sec</div>
-      </div>
-      <div style="flex:2;display:flex;flex-direction:column;gap:5px;">
-        <div class="podcast-bar"><div class="podcast-bar-fill" id="pbar"></div></div>
-        <div class="podcast-time" id="ptime">0:00 / 2:15</div>
+        <div class="action-item">
+          <div>
+            <div class="azione-title">🔍 MONITORAGGIO — Calabria post-commissariamento: nuove nomine DG/DS/DA attese</div>
+            <div class="azione-scad">📅 Prossime settimane (a partire da aprile 2026)</div>
+            <p style="font-size:12px; margin-top:4px;">La fine del commissariamento della sanità calabrese apre la strada a nuove procedure di nomina per DG, DS e DA nelle aziende sanitarie calabresi. Monitorare sito Regione Calabria e GURI per avvisi.</p>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="podcast-script">
-      <strong>Buongiorno. Sono le 7 di mattina del 10 aprile 2026. Ecco le tre notizie più importanti per il settore sanitario.</strong><br><br>
-      Primo: l'ASP di Palermo ha pubblicato un concorso per tre dirigenti medici in anatomia patologica. La scadenza è il 9 maggio. Se siete nel settore, vale la pena verificare i requisiti oggi.<br><br>
-      Secondo: il Ministero della Salute ha emesso ieri una circolare che aggiorna i tempi massimi di refertazione per l'anatomia patologica. Dieci giorni per le urgenze, venti per la routine. Le aziende sanitarie hanno 60 giorni per recepirla.<br><br>
-      Terzo: l'AOU Careggi di Firenze ha aperto una gara europea per sistemi automatizzati di istocitopatologia. Base d'asta oltre un milione di euro, scadenza a metà maggio.<br><br>
-      Sulle liste d'attesa, segnaliamo una criticità in crescita alla ASL Napoli 1 per la TAC torace: i tempi hanno superato i 34 giorni, con un aumento di 6 giorni rispetto alla settimana scorsa.<br><br>
-      <strong>Per oggi, la scadenza più urgente è quella per il Direttore Sanitario all'AOU di Bari: il 25 aprile. Buona giornata.</strong>
+  </div>
+
+  <!-- FONTI CONSULTATE -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)" style="background: var(--blue-dark);">
+      <h2>📚 Fonti Consultate Oggi</h2>
+      <span><span class="arrow open">▼</span></span>
+    </div>
+    <div class="section-body">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; font-size:12px;">
+        <a href="https://www.gazzettaufficiale.it/ricerca/concorsi" target="_blank" class="tag tag-blue">Gazzetta Ufficiale</a>
+        <a href="https://www.salute.gov.it" target="_blank" class="tag tag-blue">Ministero della Salute</a>
+        <a href="https://www.aifa.gov.it" target="_blank" class="tag tag-blue">AIFA</a>
+        <a href="https://www.agenas.gov.it" target="_blank" class="tag tag-blue">AGENAS</a>
+        <a href="https://www.gurs.regione.sicilia.it" target="_blank" class="tag tag-blue">GURS</a>
+        <a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank" class="tag tag-green">ASP Palermo</a>
+        <a href="https://www.asp.rg.it/avvisi" target="_blank" class="tag tag-green">ASP Ragusa</a>
+        <a href="https://www.asp.ct.it" target="_blank" class="tag tag-green">ASP Catania</a>
+        <a href="https://www.ospedaliriunitipalermo.it" target="_blank" class="tag tag-green">Osp. Riuniti Villa Sofia-Cervello</a>
+        <a href="https://www.salutelazio.it" target="_blank" class="tag tag-amber">Salute Lazio</a>
+        <a href="https://www.regione.puglia.it/web/salute" target="_blank" class="tag tag-amber">Regione Puglia</a>
+        <a href="https://www.ansa.it" target="_blank" class="tag tag-grey">ANSA</a>
+        <a href="https://www.quotidianosanita.it" target="_blank" class="tag tag-grey">QuotidianoSanità</a>
+        <a href="https://www.concorsipubblici.com/concorsi/occupazione/pro/settore-sanita-898/loc/sicilia" target="_blank" class="tag tag-grey">ConcorsiPubblici.com</a>
+        <a href="https://qds.it" target="_blank" class="tag tag-grey">QDS</a>
+        <a href="https://siciliamedica.com" target="_blank" class="tag tag-grey">SiciliaMediaca</a>
+        <a href="https://www.calabriainchieste.it" target="_blank" class="tag tag-grey">CalabriaInchieste</a>
+      </div>
+      <p style="margin-top:12px; font-size:11px; color:var(--text-muted);">
+        ⚠️ Le fonti non raggiungibili oggi: ASP Messina, ASP Enna, AOU Careggi (accesso diretto non disponibile) — compensate con aggregatori nazionali.<br>
+        ℹ️ La GURS è consultabile esclusivamente in formato digitale dal gennaio 2026.
+      </p>
     </div>
   </div>
 
-  <div class="footer">Report generato automaticamente dall'assistente di monitoraggio strategico · Sanità italiana · 10 aprile 2026</div>
 </div>
+
+<footer>
+  Report Sanitario Strategico Italia · Generato automaticamente l'<strong>11 aprile 2026</strong> ·
+  <a href="https://leankubatore.github.io/Reportssn" target="_blank">leankubatore.github.io/Reportssn</a>
+</footer>
 
 <script>
-function toggleSection(header) {
-  const body = header.parentElement.querySelector('.section-body');
-  const icon = header.querySelector('.toggle-icon');
-  body.classList.toggle('collapsed');
-  icon.style.transform = body.classList.contains('collapsed') ? 'rotate(-90deg)' : '';
-}
-
-let playing = false, timer = null, sec = 0, total = 135;
-function togglePlay(btn) {
-  if (!playing) {
-    playing = true;
-    btn.textContent = '⏸';
-    timer = setInterval(() => {
-      sec++;
-      if (sec >= total) { sec = total; clearInterval(timer); playing = false; btn.textContent = '▶'; }
-      document.getElementById('pbar').style.width = (sec/total*100) + '%';
-      document.getElementById('ptime').textContent = fmt(sec) + ' / ' + fmt(total);
-    }, 1000);
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.arrow');
+  if (body.classList.contains('collapsed')) {
+    body.classList.remove('collapsed');
+    arrow.classList.add('open');
   } else {
-    playing = false; btn.textContent = '▶'; clearInterval(timer);
+    body.classList.add('collapsed');
+    arrow.classList.remove('open');
   }
 }
-function fmt(s) { return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
-
-document.querySelectorAll('.chip').forEach(c => {
-  c.addEventListener('click', () => {
-    document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-  });
-});
 </script>
 </body>
 </html>
