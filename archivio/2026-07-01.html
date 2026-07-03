@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Report Strategico Sanità Italiana — 01/07/2026</title>
+<style>
+  :root{--blu:#003366;--blu2:#1a7fc1;--bg:#eef2f7;--ok:#1e8e3e;--warn:#e8a600;--bad:#c62828;}
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:#1a1a2e;margin:0;padding:0;line-height:1.5}
+  header{background:linear-gradient(135deg,var(--blu),#004a8f);color:#fff;padding:28px 24px}
+  header h1{margin:0 0 8px;font-size:1.7rem}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .badge{background:rgba(255,255,255,.18);padding:6px 14px;border-radius:20px;font-size:.82rem}
+  nav{background:#fff;padding:12px 24px;box-shadow:0 2px 6px rgba(0,0,80,.08);position:sticky;top:0;z-index:10}
+  nav a{color:var(--blu);text-decoration:none;font-size:.82rem;margin-right:14px;font-weight:600}
+  nav a:hover{text-decoration:underline}
+  main{max-width:1100px;margin:0 auto;padding:24px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:28px}
+  .card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,80,.08);border-left:5px solid var(--blu2)}
+  .card .num{font-size:1.9rem;font-weight:700;color:var(--blu)}
+  .card .lbl{font-size:.82rem;color:#555}
+  section{background:#fff;border-radius:10px;padding:20px 22px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,80,.08)}
+  section h2{color:var(--blu);border-bottom:2px solid #e0e8f0;padding-bottom:8px;margin-top:0;font-size:1.15rem}
+  .item{padding:10px 0;border-bottom:1px solid #eef2f7}
+  .item:last-child{border-bottom:none}
+  .meta{font-size:.78rem;color:#666}
+  .nota{font-size:.82rem;color:#334;background:#f4f7fb;padding:6px 10px;border-radius:6px;display:inline-block;margin-top:4px}
+  .flag{color:var(--bad);font-weight:600}
+  .dup{color:#888;font-style:italic;font-size:.8rem}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.85rem}
+  th{background:var(--blu);color:#fff;padding:8px 10px;text-align:left}
+  td{padding:7px 10px;border-bottom:1px solid #e0e8f0}
+  tr:nth-child(even){background:#f7f9fc}
+  .ok{color:var(--ok);font-weight:700}
+  .warn{color:var(--warn);font-weight:700}
+  .bad{color:var(--bad);font-weight:700}
+  .region-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .region-card{border:1px solid #e0e8f0;border-radius:8px;padding:14px}
+  .region-card h3{margin:0 0 8px;color:var(--blu);font-size:1rem}
+  .action{padding:8px 12px;border-radius:6px;margin-bottom:8px;font-size:.88rem}
+  .action.urgente{background:#fdeaea;border-left:4px solid var(--bad)}
+  .action.media{background:#fff8e6;border-left:4px solid var(--warn)}
+  .action.monitor{background:#eafaf0;border-left:4px solid var(--ok)}
+  footer{text-align:center;padding:26px;color:#555;font-size:.85rem}
+  footer a{color:var(--blu2);text-decoration:none;font-weight:600}
+  a.src{color:var(--blu2)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏥 Report Strategico Sanità Italiana</h1>
+  <div class="badges">
+    <span class="badge">🗓️ Dati aggiornati al 01/07/2026</span>
+    <span class="badge">📁 Archivio disponibile</span>
+    <span class="badge">🔎 Monitoraggio: bandi · gare · normativa · ricerca · liste attesa</span>
+  </div>
+</header>
+<nav>
+  <a href="#s1">1. Bandi/Concorsi</a><a href="#s2">2. Manifestazioni interesse</a><a href="#s3">3. Incarichi dirigenziali</a>
+  <a href="#s4">4. Gare/Affidamenti</a><a href="#s5">5. Ministero Salute</a><a href="#s6">6. AGENAS</a>
+  <a href="#s7">7. AIFA</a><a href="#s8">8. Laboratori</a><a href="#s9">9. Ricerca genetica/oncologia</a>
+  <a href="#s10">10. Liste attesa</a><a href="#s11">11. Analisi regionale</a><a href="#s12">12. Azioni consigliate</a>
+</nav>
+<main>
+
+<div class="cards">
+  <div class="card"><div class="num">9</div><div class="lbl">Bandi/concorsi profili strategici</div></div>
+  <div class="card"><div class="num">0</div><div class="lbl">Nuove gare service medico specifiche</div></div>
+  <div class="card"><div class="num">4</div><div class="lbl">Novità ricerca genetica/oncologia</div></div>
+  <div class="card"><div class="num">3</div><div class="lbl">Azioni urgenti (≤7gg)</div></div>
+</div>
+
+<section id="s1">
+<h2>1. Bandi e Concorsi — Profili Strategici</h2>
+
+<div class="item"><strong>1. ASP Trapani — Concorso 32 Dirigenti Medici, varie discipline</strong><br>
+<span class="meta">Ente: ASP Trapani | Regione: Sicilia | Pubbl.: 10/06/2026 | Scadenza: <strong>09/07/2026</strong></span>
+<span class="dup">(già rilevato il 30/06)</span><br>
+<span class="nota">Nota operativa: verificare elenco discipline incluse tra i 32 posti — possibile presenza di patologia clinica/anatomia patologica, non confermato dalla fonte generica.</span><br>
+<a class="src" href="https://www.concorsi.it/scheda/426269-concorso-pubblico-per-titoli-ed-esami-a-copertura-di-posti-della-dirigenza-medica-varie-discipline">Fonte</a></div>
+
+<div class="item"><strong>2. ASP Ragusa — Concorso 28 posti Dirigente Medico, varie discipline</strong><br>
+<span class="meta">Ente: ASP Ragusa | Regione: Sicilia | Scadenza: da verificare</span><br>
+<span class="nota">🔴 Dato scadenza non confermato dalla fonte generica: verificare su GURS/sito ASP Ragusa. Verificare presenza disciplina anatomia patologica/laboratorio.</span></div>
+
+<div class="item"><strong>3. ASP Siracusa — Concorso 5 posti Dirigente Medico</strong><br>
+<span class="meta">Ente: ASP Siracusa | Regione: Sicilia | Scadenza: da verificare</span><br>
+<span class="nota">🔴 Verificare disciplina specifica su asp.sr.it/ASP-comunica/Concorsi.</span></div>
+
+<div class="item"><strong>4. ASP Agrigento — Selezioni multiple (Dirigente Medico, Dirigente Clinico, Dirigente Legale, Tecnico cardiocircolatoria)</strong><br>
+<span class="meta">Ente: ASP Agrigento | Regione: Sicilia</span><br>
+<span class="nota">Nota: profili "Dirigente Legale" e "Tecnico cardiocircolatoria" fuori perimetro Sez.1 (esclusi da criteri); il profilo "Dirigente Clinico" e i posti "Dirigente Medico" vanno verificati per disciplina di interesse.</span></div>
+
+<div class="item"><strong>5. IRCCS Centro di Riferimento Oncologico di Aviano (CRO) — 1 posto Dirigente Medico Oncologia Medica, t. indeterminato</strong><br>
+<span class="meta">Ente: IRCCS CRO Aviano | Regione: Friuli Venezia Giulia | Scadenza: <strong>19/07/2026</strong></span><br>
+<span class="nota">Rilevante: profilo oncologia medica incluso nei criteri strategici.</span><br>
+<a class="src" href="https://concorsitaly.net/concorsi/irccs-centro-di-riferimento-oncologico-di-aviano-concorso-scad-19-luglio-2026/">Fonte</a></div>
+
+<div class="item"><strong>6. Ente da confermare — 7 posti Dirigente Medico Oncologia, t. indeterminato</strong><br>
+<span class="meta">Scadenza: <strong>26/07/2026</strong></span><br>
+<span class="nota flag">🔴 Fonte aggregata non identifica chiaramente l'ente titolare — richiede verifica diretta su Gazzetta Ufficiale serie concorsi prima della scadenza.</span></div>
+
+<div class="item"><strong>7. IRCCS Casa Sollievo della Sofferenza — 2 Biologi, collaborazione, ricerca Genetica Medica</strong><br>
+<span class="meta">Ente: IRCCS Casa Sollievo della Sofferenza | Regione: Puglia | Scadenza: 08/06/2026 (scaduto)</span><br>
+<span class="nota">Solo ai fini di monitoraggio storico — bando ormai chiuso, utile per mappare linee di ricerca genetica attive nell'ente.</span></div>
+
+<div class="item"><strong>8. AUSL Bologna — Direttore Struttura Complessa Anatomia Patologica (U.O. Anatomia Patologica, Ospedale Maggiore, DIAP)</strong><br>
+<span class="meta">Ente: AUSL Bologna | Regione: Emilia-Romagna | Scadenza: da verificare</span><br>
+<span class="nota">🔴 Data di scadenza non riportata dalla fonte generica — verificare su portale AUSL Bologna / Gazzetta Ufficiale.</span></div>
+
+<div class="item"><strong>9. ASST Fatebenefratelli Sacco — Direttore Struttura Complessa Anatomia Patologica, incarico quinquennale</strong><br>
+<span class="meta">Ente: ASST Fatebenefratelli Sacco | Regione: Lombardia | Pubbl. BURL: 06/05/2026 | Scadenza: da verificare</span><br>
+<span class="nota">🔴 Scadenza non confermata dalla fonte generica.</span></div>
+
+</section>
+
+<section id="s2">
+<h2>2. Manifestazioni di Interesse</h2>
+<p>Nessuna novità rilevata oggi per incarichi dirigenziali SSN o erogatori privati specialistici/laboratori accreditati.</p>
+</section>
+
+<section id="s3">
+<h2>3. Incarichi Dirigenziali (DG / DS / DA — art. 15 D.Lgs. 502/92)</h2>
+<div class="item"><strong>Elenco nazionale idonei Direttore Generale enti SSN — aggiornamento biennale Ministero della Salute</strong><br>
+<span class="meta">Ente: Ministero della Salute | Nazionale</span>
+<span class="dup">(procedura ordinaria, già segnalata il 30/06 — nessun nuovo avviso pubblicato oggi)</span></div>
+<div class="item"><strong>Elenchi regionali idonei DG/DS/DA</strong><br>
+<span class="meta">Regioni: Liguria, Piemonte, Lombardia, Umbria</span><br>
+<span class="nota">Attività ordinaria di aggiornamento liste — nessuna nuova pubblicazione datata odierna.</span></div>
+</section>
+
+<section id="s4">
+<h2>4. Gare e Affidamenti (solo servizi medici)</h2>
+<p><span class="flag">🔴</span> La ricerca odierna non ha prodotto nuovi bandi di gara specificamente datati per anatomia patologica, istocitopatologia, laboratorio in service, genetica/NGS o telemedicina diagnostica pubblicati oggi. Le fonti generiche restituiscono solo riferimenti a servizi già attivi (es. convenzione INT Milano–ASST G. Pini per biologia molecolare e anatomia patologica, non nuova). Si raccomanda verifica diretta sui portali regionali (SardegnaCAT, SintelLombardia, EmPULIA, portale appalti Sicilia) e su ANAC, non pienamente indicizzati dal motore di ricerca generico.</p>
+</section>
+
+<section id="s5">
+<h2>5. Ministero della Salute</h2>
+<div class="item"><strong>Allerta caldo — bollettino 1° luglio 2026</strong><br>
+<span class="meta">21 città da bollino rosso, Reggio Calabria in arancione</span><br>
+<span class="nota">Nuovo bollettino odierno del Ministero della Salute nell'ambito del Piano operativo nazionale caldo.</span><br>
+<a class="src" href="https://www.meteo.it/notizie/meteo-allerta-caldo-1-luglio-2026-italia-bollino-rosso-e-non-4bb15a7b">Fonte</a></div>
+<div class="item"><strong>Circolare in preparazione — monitoraggio caldo e grandi eventi</strong><br>
+<span class="meta">Cabina di regia riunita al Ministero, coordinamento con ASL e Protezione Civile</span><br>
+<span class="nota">In arrivo circolare per rafforzare il monitoraggio in coincidenza con grandi eventi estivi.</span></div>
+<div class="item"><strong>Circolare "Prevenzione e controllo dell'influenza 2026-2027"</strong>
+<span class="dup">(già rilevato il 30/06)</span></div>
+<div class="item"><strong>Legge di Bilancio 2026 — misure sanità</strong><br>
+<span class="nota">€238 mln/anno per prevenzione e screening (mammografico 45-49/70-74, colon-retto 70-74, monitoraggio polmone); €20 mln/anno per telemedicina.</span>
+<span class="dup">(contesto già noto, ribadito come riferimento normativo attivo)</span></div>
+</section>
+
+<section id="s6">
+<h2>6. AGENAS</h2>
+<div class="item"><strong>Scadenza PNRR 30/06/2026 — Case e Ospedali di Comunità (DM 77/2022, Missione 6 PNRR)</strong><br>
+<span class="meta">Target: 1.038 Case di Comunità e 307 Ospedali di Comunità</span><br>
+<span class="nota">Risultati stimati a ridosso della scadenza: ~900-1.200 Case di Comunità dichiarate operative, 290/307 Ospedali di Comunità. Forte disparità Nord-Sud: in ritardo Sardegna, Molise, Calabria, Puglia, Abruzzo, Basilicata. Rischio sanzioni economiche/restituzione fondi in caso di mancato raggiungimento target formale.</span><br>
+<a class="src" href="https://www.ilsussidiario.net/news/pnrr-e-case-di-comunita-il-30-giugno-scopre-il-nodo-strutture-aperte-ma-cure-ancora-al-palo/2975132/">Fonte</a> · <a class="src" href="https://www.abruzzoweb.it/case-comunita-tempo-scaduto-raggiunto-target-1-038-aperture-schillaci-ora-piena-operativita/">Fonte 2</a></div>
+<div class="item"><strong>Cruscotto 2.0 — Piattaforma nazionale monitoraggio liste d'attesa</strong><br>
+<span class="nota">Oltre 65 milioni di prenotazioni monitorate (gennaio 2025 – aprile 2026).</span>
+<span class="dup">(già rilevato il 30/06, dati confermati)</span></div>
+<div class="item"><strong>Report Annuale 2025 — Monitoraggio strutture sanitarie accreditate</strong>
+<span class="dup">(già rilevato il 30/06)</span></div>
+</section>
+
+<section id="s7">
+<h2>7. AIFA</h2>
+<div class="item"><strong>CdA AIFA (29 maggio) — 4 nuovi farmaci, 5 estensioni indicazione, 2 equivalenti rimborsabili</strong><br>
+<span class="nota">Include Elahere (mirvetuximab) per carcinoma ovarico epiteliale, delle tube di Falloppio e peritoneale primario.</span>
+<span class="dup">(già rilevato il 30/06)</span></div>
+<div class="item"><strong>CHMP EMA (22-25 giugno) — 6 nuovi farmaci raccomandati, 11 estensioni d'uso, 3 pareri negativi, revoca Tavneos</strong><br>
+<span class="nota">Tra gli oncologici: Anktiva (nogapendekin alfa inbakicept) per carcinoma vescicale <span class="dup">(già rilevato il 30/06)</span>; nuova CAR-T di seconda generazione per leucemia linfoblastica acuta (denominazione commerciale non specificata dalla fonte — <span class="flag">🔴 verificare comunicato AIFA/EMA ufficiale</span>).</span><br>
+<a class="src" href="https://www.aboutpharma.com/legal-regulatory/chmp-ema-a-giugno-2026-sei-nuovi-farmaci-raccomandati-e-11-estensioni-duso-stop-a-tre-medicinali-e-revoca-per-tavneos/">Fonte</a></div>
+<div class="item"><strong>Aggiornamento HTA dossier per rimborsabilità</strong><br>
+<span class="nota">In vigore dal 1° aprile 2026: richiesti dati più robusti di costo-efficacia per le nuove domande di rimborsabilità, con impatto su tempi di accesso ai farmaci oncologici innovativi.</span></div>
+</section>
+
+<section id="s8">
+<h2>8. Laboratori Analisi e Medicina di Laboratorio</h2>
+<p>Nessuna novità rilevata oggi su nuove gare/service pubblici e privati per laboratorio, nuove convenzioni SSN, aggiornamenti tariffari o accreditamenti regionali. <span class="flag">🔴</span> La ricerca generica non copre in modo esaustivo i portali di gara regionali: si raccomanda verifica diretta su EmPULIA, SardegnaCAT, portale appalti Regione Sicilia e ANAC per bandi di service diagnostico non ancora indicizzati.</p>
+<p>Riferimento indiretto: bando dirigenziale Direttore SC Anatomia Patologica presso ASST Fatebenefratelli Sacco (Lombardia) e AUSL Bologna — vedi Sez. 1, voci 8-9.</p>
+</section>
+
+<section id="s9">
+<h2>9. Ricerca Scientifica — Genetica e Oncologia</h2>
+<div class="item"><strong>AIRC — Investimento 2026</strong><br>
+<span class="nota">Oltre €142 milioni destinati alla ricerca oncologica nel 2026, a copertura di 779 tra progetti e borse di studio, con il coinvolgimento di circa 5.000 ricercatori attivi in Italia.</span><br>
+<a class="src" href="https://www.healthdesk.it/ricerca/airc-142-milioni-ricerca-oncologica">Fonte</a></div>
+<div class="item"><strong>AIRC — Bando 5x1000 2026 "From Tumor Complexity to Precision Oncology"</strong><br>
+<span class="meta">Importo: €10.000.000/anno | Durata: fino a 6 anni con valutazioni periodiche</span>
+<span class="dup">(già rilevato il 30/06)</span></div>
+<div class="item"><strong>AIRC — Individual Grants 2026 (MFAG, Investigator Grant, Bridge Grant)</strong><br>
+<span class="nota">Scadenze presubmission/full proposal già decorse (3-6 marzo 2026) — solo di contesto per pianificazione 2027.</span></div>
+<div class="item"><strong>PNRR — Piattaforme Nazionali, manifestazione interesse genomica su larga scala (26-EoI-G-LARGE-SCALE)</strong><br>
+<span class="nota">Finestra 9/02–20/04/2026, ora chiusa. Da monitorare pubblicazione esiti valutazione.</span></div>
+<div class="item"><strong>PNRR — Ricerca biomedica, avvisi tematici (Proof of Concept, Tumori Rari, Malattie Croniche non Trasmissibili)</strong><br>
+<span class="nota">Dotazione complessiva €310.835.569 (Proof of Concept €65.086.808; Tumori Rari €50.000.000; MCNT €162.070.000).</span>
+<span class="dup">(contesto già rilevato, nessun nuovo avviso oggi)</span></div>
+<div class="item"><strong>Piano AIFA-AIOM — Registri di Monitoraggio, dati real-world in oncologia</strong>
+<span class="dup">(già rilevato il 30/06)</span></div>
+</section>
+
+<section id="s10">
+<h2>10. Liste d'Attesa</h2>
+<p><span class="flag">🔴 Dato non aggiornato oltre 14 giorni</span>: i dati più recenti disponibili dal Cruscotto AGENAS risalgono ad aprile 2026 (I quadrimestre 2026); nessun aggiornamento puntuale trovato per luglio 2026. Dati aggregati regionali, non scomposti per classe di priorità U/B/D/P nella fonte pubblica consultata.</p>
+<table>
+<tr><th>Regione</th><th>Prime visite (% entro standard)</th><th>Esami diagnostici (% entro standard)</th><th>Trend vs 2025</th></tr>
+<tr><td>Sicilia</td><td class="bad">80,6%</td><td class="bad">72,8%</td><td class="bad">In peggioramento (da 88% e 76,6%)</td></tr>
+<tr><td>Lazio</td><td class="ok">90,6%</td><td class="ok">88,7%</td><td class="ok">Positivo</td></tr>
+<tr><td>Puglia</td><td class="bad">56,2%</td><td class="warn">dato non disponibile</td><td class="warn">Segnali di miglioramento parziale</td></tr>
+<tr><td>Lombardia</td><td class="warn">80,3%</td><td class="ok">84,8%</td><td class="warn">Sostanzialmente stabile</td></tr>
+<tr><td>Media nazionale</td><td>78,7%</td><td>84,7%</td><td>—</td></tr>
+</table>
+<p style="margin-top:10px"><strong>Standard LEA:</strong> U=72h, B=10gg, D=30gg, P=120gg — non applicabile riga per riga: dati regionali disponibili solo in forma aggregata.</p>
+<p><strong>Misure straordinarie attivate:</strong></p>
+<ul>
+<li>Piano Nazionale di Governo delle Liste d'Attesa (PNGLA) 2026-2028 — intesa raggiunta in Conferenza Stato-Regioni l'11/06/2026: CUP unico (inclusa libera professione intramuraria), obbligo disdetta con ticket per assenza ingiustificata, percorsi di tutela obbligatori per prestazioni fuori standard, adozione piano regionale entro 120 giorni (scadenza indicativa ~09/10/2026). <span class="dup">(già rilevato il 30/06)</span></li>
+<li>Puglia — accordo Regione-privati abbattimento liste d'attesa: 51% delle prestazioni 2026 già anticipate/erogate. <span class="dup">(già rilevato il 30/06)</span></li>
+</ul>
+</section>
+
+<section id="s11">
+<h2>11. Analisi Regionale</h2>
+<div class="region-grid">
+<div class="region-card"><h3>🟠 Sicilia</h3>
+<p><strong>Novità:</strong> nuovi bandi dirigenza medica ASP Ragusa (28 posti), ASP Siracusa (5 posti), ASP Agrigento (selezioni multiple), ASP Trapani (32 posti, scad. 9/07).</p>
+<p><strong>Criticità:</strong> liste d'attesa in peggioramento su base annua (prime visite 80,6% vs 88% 2025; esami 72,8% vs 76,6%), tra le regioni con trend negativo insieme ad Abruzzo, Trento, Valle d'Aosta.</p>
+<p><strong>Opportunità:</strong> ampio numero di posizioni dirigenziali in apertura; obbligo di adottare piano regionale liste attesa entro 120gg dall'intesa dell'11/06.</p>
+<p><strong>Focus laboratori/ricerca:</strong> nessuna gara service laboratorio rilevata oggi.</p>
+</div>
+<div class="region-card"><h3>🔵 Lazio</h3>
+<p><strong>Novità:</strong> nessuna pubblicazione specifica oggi oltre il contesto nazionale (Ministero, AGENAS, AIFA).</p>
+<p><strong>Criticità:</strong> nessuna segnalata.</p>
+<p><strong>Opportunità:</strong> liste d'attesa sopra la media nazionale (90,6% prime visite, 88,7% esami).</p>
+<p><strong>Focus laboratori/ricerca:</strong> nessuna novità oggi.</p>
+</div>
+<div class="region-card"><h3>🟢 Puglia</h3>
+<p><strong>Novità:</strong> prosegue l'accordo Regione-privati per l'abbattimento delle liste d'attesa (51% prestazioni 2026 anticipate).</p>
+<p><strong>Criticità:</strong> prime visite tra le più critiche rilevate (56,2%).</p>
+<p><strong>Opportunità:</strong> IRCCS Giovanni Paolo II Bari attivo su ricerca oncologica; nessun bando specifico oggi.</p>
+<p><strong>Focus laboratori/ricerca:</strong> nessuna novità oggi.</p>
+</div>
+<div class="region-card"><h3>🔴 Campania</h3>
+<p><strong>Novità:</strong> nessuna pubblicazione specifica oggi.</p>
+<p><strong>Criticità:</strong> dati liste attesa non emersi nella ricerca odierna — 🔴 verificare fonte regionale diretta.</p>
+<p><strong>Opportunità:</strong> IRCCS Pascale Napoli attivo su ricerca oncologica/genetica.</p>
+<p><strong>Focus laboratori/ricerca:</strong> nessuna novità oggi.</p>
+</div>
+<div class="region-card"><h3>🟣 Lombardia</h3>
+<p><strong>Novità:</strong> avviso Direttore SC Anatomia Patologica presso ASST Fatebenefratelli Sacco (BURL 06/05, scadenza da confermare).</p>
+<p><strong>Criticità:</strong> liste d'attesa sostanzialmente stabili (80,3%/84,8%).</p>
+<p><strong>Opportunità:</strong> INT Milano e IEO attivi su ricerca oncologica/genomica.</p>
+<p><strong>Focus laboratori/ricerca:</strong> bando dirigenziale anatomia patologica (vedi Sez. 1, voce 9).</p>
+</div>
+<div class="region-card"><h3>⚪ Toscana</h3>
+<p><strong>Novità:</strong> nessuna pubblicazione specifica oggi.</p>
+<p><strong>Criticità:</strong> nessuna rilevata oggi.</p>
+<p><strong>Opportunità:</strong> ISPRO e AOU Careggi attivi su oncologia; nessun bando specifico oggi.</p>
+<p><strong>Focus laboratori/ricerca:</strong> nessuna novità oggi.</p>
+</div>
+</div>
+</section>
+
+<section id="s12">
+<h2>12. Azioni Consigliate</h2>
+<div class="action urgente">🔴 <strong>URGENTE (≤7gg)</strong> — Verificare presso fonte primaria (Gazzetta Ufficiale serie concorsi) l'ente titolare del bando "7 posti Dirigente Medico Oncologia" con scadenza 26/07/2026, non identificato con certezza dalla ricerca aggregata.</div>
+<div class="action urgente">🔴 <strong>URGENTE (≤7gg)</strong> — ASP Trapani, concorso 32 Dirigenti Medici: scadenza 09/07/2026, 8 giorni residui. Verificare elenco discipline per profili di interesse (anatomia patologica/laboratorio).</div>
+<div class="action urgente">🔴 <strong>URGENTE (≤7gg)</strong> — Monitorare consolidamento dati finali PNRR Case/Ospedali di Comunità (scadenza formale 30/06/2026 appena decorsa): impatto diretto su finanziamenti e rendicontazione regionale, in particolare per le Regioni in ritardo (Sicilia inclusa nel gruppo a rischio).</div>
+<div class="action media">🟡 <strong>MEDIA (8-30gg)</strong> — IRCCS CRO Aviano, Dirigente Medico Oncologia Medica: scadenza 19/07/2026.</div>
+<div class="action media">🟡 <strong>MEDIA (8-30gg)</strong> — Verificare disciplina specifica dei bandi ASP Ragusa (28 posti) e ASP Siracusa (5 posti) per profili anatomia patologica/laboratorio/oncologia.</div>
+<div class="action media">🟡 <strong>MEDIA (8-30gg)</strong> — Monitorare avanzamento adozione Piani regionali di Governo Liste d'Attesa (scadenza indicativa 120gg da intesa 11/06/2026, ~09/10/2026), con focus su Sicilia.</div>
+<div class="action monitor">🟢 <strong>MONITORAGGIO (>30gg)</strong> — AIRC Bando 5x1000 2026 "Tumor Complexity to Precision Oncology": monitorare eventuali call satellite o partnership IRCCS.</div>
+<div class="action monitor">🟢 <strong>MONITORAGGIO (>30gg)</strong> — Esiti manifestazione di interesse PNRR genomica su larga scala (26-EoI-G-LARGE-SCALE, chiusa 20/04/2026).</div>
+<div class="action monitor">🟢 <strong>MONITORAGGIO (>30gg)</strong> — Evoluzione HTA dossier AIFA (in vigore dal 1/04/2026): impatto sui tempi di rimborsabilità dei farmaci oncologici innovativi nei prossimi trimestri.</div>
+</section>
+
+</main>
+<footer>
+  Report generato automaticamente il 01/07/2026 — Monitoraggio strategico sanità italiana.<br>
+  <a href="archivio/index.html">📁 Archivio report storici</a>
+</footer>
+</body>
+</html>
