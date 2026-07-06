@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Report Strategico Sanità Italiana — 4 luglio 2026</title>
+<style>
+:root{--blu:#003366;--blu2:#1a7fc1;--bg:#eef2f7;--card:#fff;--txt:#1a1a2e;--ok:#1a7d3c;--warn:#c47f00;--crit:#c0202f;}
+*{box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--txt);margin:0;padding:0;line-height:1.5}
+header{background:linear-gradient(135deg,#003366,#0a4a8a);color:#fff;padding:28px 24px}
+header h1{margin:0 0 6px;font-size:1.55rem}
+header .meta{font-size:.9rem;opacity:.92}
+.badge{display:inline-block;background:#ffd24d;color:#3a2c00;padding:3px 10px;border-radius:20px;font-size:.78rem;font-weight:600;margin-left:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 60px}
+nav.quick{background:var(--card);border-radius:10px;padding:14px 18px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,80,.08);font-size:.85rem}
+nav.quick a{color:var(--blu2);text-decoration:none;margin-right:14px;white-space:nowrap;display:inline-block;padding:2px 0}
+nav.quick a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--card);border-radius:10px;padding:16px 18px;box-shadow:0 2px 8px rgba(0,0,80,.08);border-left:5px solid var(--blu)}
+.card .n{font-size:1.8rem;font-weight:700;color:var(--blu)}
+.card .l{font-size:.82rem;color:#555;margin-top:2px}
+.card.crit{border-left-color:var(--crit)}.card.crit .n{color:var(--crit)}
+details{background:var(--card);border-radius:10px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,80,.07);overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;color:var(--blu);font-size:1.02rem;list-style:none;background:#f5f8fc;border-left:5px solid var(--blu)}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"▸ ";color:var(--blu2)}
+details[open] summary:before{content:"▾ "}
+.body{padding:14px 20px}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86rem}
+th{background:var(--blu);color:#fff;padding:8px 10px;text-align:left}
+td{padding:8px 10px;border-bottom:1px solid #e3ebf3;vertical-align:top}
+tr:nth-child(even) td{background:#f7fafd}
+a{color:var(--blu2)}
+.tag{display:inline-block;padding:1px 8px;border-radius:12px;font-size:.72rem;font-weight:600}
+.t-ok{background:#e2f5e9;color:var(--ok)}.t-warn{background:#fdf2dc;color:var(--warn)}.t-crit{background:#fbe3e5;color:var(--crit)}
+.u{color:#999;font-style:italic}
+.note{font-size:.82rem;color:#555;margin-top:4px}
+h3{color:var(--blu);margin:16px 0 6px;font-size:1rem}
+.legend{font-size:.8rem;color:#555;margin:6px 0}
+footer{text-align:center;padding:26px;color:#556;font-size:.85rem}
+footer a{display:inline-block;background:var(--blu);color:#fff;padding:9px 18px;border-radius:6px;text-decoration:none;margin-top:8px}
+.reg{border-left:4px solid var(--blu2);padding:6px 14px;margin:10px 0;background:#f7fafd;border-radius:0 8px 8px 0}
+.reg h4{margin:2px 0;color:var(--blu)}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap" style="padding-bottom:0">
+<h1>🏥 Report Strategico Sanità Italiana <span class="badge">📁 Archivio disponibile</span></h1>
+<div class="meta">Monitoraggio istituzionale — bandi, gare, normativa, ricerca &amp; liste d'attesa<br/>
+Aggiornato: <strong>sabato 4 luglio 2026</strong> · Focus: laboratori, anatomia patologica, genetica, oncologia · Regioni: Sicilia, Lazio, Puglia, Campania, Lombardia, Toscana</div>
+</div>
+</header>
+<div class="wrap">
+
+<nav class="quick">
+<strong>Navigazione:</strong>
+<a href="#s1">1·Bandi</a><a href="#s2">2·Manif. interesse</a><a href="#s3">3·Incarichi DG/DS/DA</a>
+<a href="#s4">4·Gare</a><a href="#s5">5·Ministero</a><a href="#s6">6·AGENAS</a><a href="#s7">7·AIFA</a>
+<a href="#s8">8·Laboratori</a><a href="#s9">9·Ricerca</a><a href="#s10">10·Liste attesa</a>
+<a href="#s11">11·Regioni</a><a href="#s12">12·Azioni</a>
+</nav>
+
+<div class="cards">
+<div class="card"><div class="n">6</div><div class="l">Bandi/concorsi profili strategici attivi</div></div>
+<div class="card"><div class="n">2</div><div class="l">Gare / service diagnostici rilevati</div></div>
+<div class="card"><div class="n">4</div><div class="l">Novità normativa &amp; ricerca</div></div>
+<div class="card crit"><div class="n">3</div><div class="l">Azioni urgenti (≤7 giorni)</div></div>
+</div>
+
+<p class="note">⚠️ I dati provengono da ricerca web su fonti istituzionali e aggregatori. Le scadenze indicate vanno verificate sulla fonte primaria (Gazzetta Ufficiale / sito ente) prima di ogni azione. Alcuni portali istituzionali non sono stati raggiungibili in lettura diretta e i dati sono ricavati da aggregatori: segnalati con 🟡.</p>
+
+<!-- SEZ 1 -->
+<details id="s1" open><summary>SEZ. 1 — Bandi e Concorsi (profili strategici)</summary>
+<div class="body">
+<p class="note">Inclusi solo: DG/DS/DA, Direttori SC/SS in anatomia patologica, laboratorio analisi, patologia clinica, genetica medica, biologia molecolare, oncologia. Esclusi infermieri, OSS, tecnici generici.</p>
+<table>
+<thead><tr><th>Ente</th><th>Regione</th><th>Profilo</th><th>Posti</th><th>Scadenza</th><th>Nota operativa</th></tr></thead>
+<tbody>
+<tr><td>IRCCS Fond. Pascale (INT Napoli)</td><td>Campania</td><td>Dir. SC — Biologia Molecolare e Oncogenesi Virale (dir. non medico/biologo)</td><td>1</td><td><span class="tag t-crit">21/06/2026 — verificare eventuale proroga</span></td><td>Profilo altamente strategico. Scadenza da confermare: possibile riapertura. <a href="https://www.fnob.it/2026/06/09/bandi-e-concorsi-dirigente-biologo-allistituto-nazionale-tumori-irccs-fondazione-g-pascale-di-napoli/">Fonte FNOB</a></td></tr>
+<tr><td>ASP Trapani</td><td>Sicilia</td><td>Dirigente medico (varie discipline: radiodiagnostica, medicina trasfusionale, medicina legale, psichiatria)</td><td>32</td><td><span class="tag t-crit">09/07/2026</span></td><td>🔴 Scadenza imminente. Contiene profili di laboratorio/diagnostica. <a href="https://www.concorsi.it/scheda/426269-concorso-pubblico-per-titoli-ed-esami-a-copertura-di-posti-della-dirigenza-medica-varie-discipline">Dettaglio</a></td></tr>
+<tr><td>ASP Ragusa</td><td>Sicilia</td><td>Dirigente medico (varie discipline)</td><td>28</td><td><span class="tag t-crit">09/07/2026</span></td><td>🔴 Scadenza imminente. Verificare discipline di laboratorio incluse. 🟡 fonte aggregatore</td></tr>
+<tr><td>AOU Padova</td><td>Veneto</td><td>Dirigente Biologo — Laboratorio Genetica Medica</td><td>1</td><td><span class="tag t-warn">GU n.42 del 05/06/2026 — 30 gg da pubbl.</span></td><td>Profilo genetica. Scadenza indicativa ~05/07. Verificare su GU. 🟡</td></tr>
+<tr><td>Az. sanitaria (Lazio)</td><td>Lazio</td><td>Dir. medico — Anatomia Patologica (SC anatomia e istologia patologica)</td><td>2</td><td><span class="u">21/06/2026 (probabilmente chiuso)</span></td><td>Già rilevato in periodo precedente. Monitorare esiti/graduatoria.</td></tr>
+<tr><td>Az. Ospedale-Università / IRCCS S.Orsola</td><td>Emilia-Romagna</td><td>Dirigente Biologo — Laboratorio Genetica Medica</td><td>1</td><td><span class="tag t-warn">verificare su fonte</span></td><td>Avviso pubblico. <a href="https://www.aosp.bo.it/it/content/avviso-pubblico-di-dirigente-biologo-disciplina-laboratorio-di-genetica-medica-dell%E2%80%99irccs">Fonte</a></td></tr>
+</tbody>
+</table>
+<p class="note">In Sicilia, il concorso ASP per <strong>2 Dirigenti Biologo — Laboratorio Genetica Medica (UOC Genetica medica)</strong> risultava con scadenza 14/05/2026 (già chiuso): monitorare graduatoria.</p>
+</div>
+</details>
+
+<!-- SEZ 2 -->
+<details id="s2"><summary>SEZ. 2 — Manifestazioni di interesse</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente/Regione</th><th>Oggetto</th><th>Scadenza</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Regione Emilia-Romagna (DGR 534/2026)</td><td>Integrazione elenco regionale idonei a Direttore Sanitario e Amministrativo Aziende/Enti SSR</td><td><span class="u">30/04–14/05/2026 (chiuso)</span></td><td>Già rilevato. Rilevante come modello; monitorare aperture analoghe in altre regioni.</td></tr>
+<tr><td>Regione Piemonte</td><td>Avviso formazione elenco regionale idonei DA/DS aziende SSR</td><td><span class="tag t-warn">verificare finestra</span></td><td>Utile per candidature dirigenziali interregionali. <a href="https://bandi.regione.piemonte.it/avvisi-beni-regionali/avviso-pubblico-selezione-formazione-dellelenco-regionale-idonei-nomina-direttore-amministrativo">Fonte</a></td></tr>
+</tbody>
+</table>
+<p class="note">Nessuna nuova manifestazione di interesse per erogatori privati/laboratori accreditati rilevata oggi in Sicilia.</p>
+</div>
+</details>
+
+<!-- SEZ 3 -->
+<details id="s3"><summary>SEZ. 3 — Incarichi dirigenziali (DG/DS/DA ex art. 15 D.Lgs. 502/92)</summary>
+<div class="body">
+<p>Nessun nuovo avviso DG/DS/DA pubblicato oggi nelle regioni monitorate. Restano attive/monitorabili:</p>
+<table>
+<thead><tr><th>Regione</th><th>Oggetto</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td>Umbria</td><td>Rosa idonei DG IZS Umbria-Marche "Togo Rosati"</td><td>Già rilevato (marzo 2026)</td></tr>
+<tr><td>Emilia-Romagna</td><td>Elenco idonei DS/DA SSR</td><td>Chiuso maggio 2026 — monitorare nomine</td></tr>
+<tr><td>Veneto</td><td>Nomine DG con effetto 25/02/2026 + conferimento DS/DA</td><td>Completato</td></tr>
+</tbody>
+</table>
+<p class="note">Monitoraggio: possibili avvisi elenco idonei DG/DS/DA in altre regioni entro l'estate.</p>
+</div>
+</details>
+
+<!-- SEZ 4 -->
+<details id="s4"><summary>SEZ. 4 — Gare e affidamenti (solo servizi medici)</summary>
+<div class="body">
+<p class="note">Incluse solo convenzioni/service di specialistica, anatomia patologica, laboratorio, genetica/NGS, telemedicina diagnostica, accordi liste attesa. Escluse forniture, dispositivi, reagenti, manutenzione.</p>
+<table>
+<thead><tr><th>Ente</th><th>Regione</th><th>Tipo</th><th>Valore</th><th>Periodo</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>ASST Valle Olona (adesione a gara ASST Sette Laghi)</td><td>Lombardia</td><td>Service analisi di <strong>patologia clinica</strong> — affidato a Cerba Healthcare Lombardia Srl</td><td>€ 973.099,72 (IVA incl.)</td><td>01/01/2026–31/12/2028</td><td>Rinnovo. Indicatore di consolidamento service laboratorio a operatori privati. 🟡</td></tr>
+<tr><td>ASST Valle Olona (adesione ASST Sette Laghi)</td><td>Lombardia</td><td>Service microtomo automatico + consumo <strong>Anatomia Patologica</strong> (Intelsint Srl)</td><td>€ 1.774.007,07 (IVA incl.)</td><td>01/10/2026–28/04/2034</td><td>Al confine col perimetro (fornitura in service). Segnalato per rilevanza strategica anatomia patologica.</td></tr>
+</tbody>
+</table>
+<p class="note">Nessuna nuova gara di service laboratorio/anatomia patologica rilevata oggi in Sicilia, Lazio, Puglia, Campania, Toscana. Per gare aperte consultare <a href="https://www.infoappalti.it/gare/index_sanitario.htm">InfoAppalti — settore sanitario</a>.</p>
+</div>
+</details>
+
+<!-- SEZ 5 -->
+<details id="s5"><summary>SEZ. 5 — Ministero della Salute</summary>
+<div class="body">
+<table>
+<thead><tr><th>Tipo</th><th>Oggetto</th><th>Data</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Circolare</td><td>Prevenzione e controllo dell'influenza — raccomandazioni stagione 2026-2027 (ISS + Regioni + CSS). Abbassata a <strong>60 anni</strong> l'età per la raccomandazione dei vaccini potenziati</td><td>~24/06/2026</td><td>Impatto su programmazione campagne vaccinali. <a href="https://www.saluteh24.com/2026/06/24/sanita-italia-influenza-2026-2027-pubblicata-nuova-circolare-ministero/">Fonte</a></td></tr>
+<tr><td>Circolare</td><td>Ondate di calore / grandi eventi — sistema sorveglianza accessi CSM; attivo numero pubblica utilità 1500 dal 22/06</td><td>23–25/06/2026</td><td>Circolare n.5134 del 23/06/2026. <a href="https://www.salute.gov.it/new/it/news-e-media/notizie/ondate-di-calore-dal-22-giugno-attivo-il-numero-1500">Fonte</a></td></tr>
+</tbody>
+</table>
+<p class="note">Consultazione diretta di salute.gov.it/norme-e-atti consigliata per decreti tariffario/LEA. Nessun nuovo decreto oncologia/laboratorio rilevato oggi.</p>
+</div>
+</details>
+
+<!-- SEZ 6 -->
+<details id="s6"><summary>SEZ. 6 — AGENAS</summary>
+<div class="body">
+<table>
+<thead><tr><th>Tipo</th><th>Oggetto</th><th>Nota strategica</th></tr></thead>
+<tbody>
+<tr><td>Monitoraggio DM 77/2022</td><td>Scadenza target PNRR M6C1: Case della Comunità e Ospedali di Comunità al <strong>30/06/2026</strong></td><td>Milestone appena raggiunta — attesi report di verifica nelle prossime settimane.</td></tr>
+<tr><td>Consultazione pubblica</td><td>Documento "Équipe multiprofessionali nelle Case della Comunità — linee di indirizzo tecnico" (aperta dal 20/04, 4 settimane)</td><td>Chiusa. Attesa pubblicazione linee guida definitive.</td></tr>
+<tr><td>Piattaforma Liste d'Attesa</td><td>Cruscotto 2.0 sul Portale Trasparenza AGENAS — oltre 65 mln prenotazioni (gen 2025–apr 2026)</td><td>Fonte dati chiave per SEZ.10. <a href="https://www.agenas.gov.it/aree-tematiche/comunicazione/primo-piano/2661-disponibile-sul-portale-della-trasparenza-agenas-un-aggiornamento-dei-dati-del-cruscotto-della-piattaforma-nazionale-delle-liste-di-attesa-e-una-videoguida">Fonte</a></td></tr>
+<tr><td>Report annuale</td><td>Report 2025 monitoraggio strutture sanitarie accreditate</td><td>Rilevante per accreditamento laboratori/erogatori privati.</td></tr>
+</tbody>
+</table>
+</div>
+</details>
+
+<!-- SEZ 7 -->
+<details id="s7"><summary>SEZ. 7 — AIFA</summary>
+<div class="body">
+<table>
+<thead><tr><th>Tipo</th><th>Oggetto</th><th>Decorrenza</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Rimborsabilità (CdA 29/05, Palermo)</td><td><strong>Elahere (mirvetuximab soravtansine)</strong> — ADC anti-FRα, farmaco orfano per ca. ovarico/tuba di Falloppio/peritoneale primitivo. Via libera a 4 nuovi medicinali, 5 estensioni, 2 equivalenti</td><td>giugno 2026</td><td>🟢 Rilevante oncologia. <a href="https://www.aifa.gov.it/-/via-libera-cda-aifa-alla-rimborsabilita-di-4-nuovi-medicinali-5-estensioni-di-indicazione-e-2-equivalenti">Fonte AIFA</a></td></tr>
+<tr><td>Note AIFA</td><td>Aggiornamento Note 39, 74, 97, 99 (GH, infertilità, anticoagulanti, BPCO)</td><td><strong>in vigore dal 09/07/2026</strong></td><td>Non oncologiche, ma impatto prescrittivo. <a href="https://www.aifa.gov.it/-/aggiornamenti-delle-note-aifa-39-74-97-e-99-in-vigore-dal-9-luglio-2026">Fonte</a></td></tr>
+<tr><td>Contesto HTA</td><td>Dal 01/04/2026 nuovi requisiti dossier HTA (costo-efficacia più robusta); procedure fast-track per oncologici urgenti; piano AIFA-AIOM sui Registri di Monitoraggio real-world</td><td>2026</td><td>Rilevante per accesso target therapy / CAR-T.</td></tr>
+</tbody>
+</table>
+</div>
+</details>
+
+<!-- SEZ 8 -->
+<details id="s8" open><summary>SEZ. 8 — Laboratori Analisi e Medicina di Laboratorio</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente</th><th>Regione</th><th>Tipo</th><th>Valore stimato</th><th>Scadenza/Periodo</th><th>Link</th></tr></thead>
+<tbody>
+<tr><td>ASP (varie)</td><td>Sicilia</td><td>Concorsi Dirigente Biologo — Lab. Genetica Medica (UOC Genetica)</td><td>—</td><td>chiuso 14/05/2026 (graduatoria)</td><td>🟡 aggregatore</td></tr>
+<tr><td>ASST Valle Olona</td><td>Lombardia</td><td>Rinnovo service patologia clinica (Cerba)</td><td>€ 973.099</td><td>2026–2028</td><td><a href="https://www.asst-valleolona.it/amm-trasparente/provvedimenti-organi-indirizzo-politico/">Delibere</a></td></tr>
+<tr><td>Regione Lombardia</td><td>Lombardia</td><td>Nuova classificazione + tariffario regionale prestazioni Lab. Analisi e Anatomia Patologica</td><td>—</td><td>in vigore (rif. 01/07/2024, aggiornamenti 2026)</td><td><a href="https://www.gavazzeni.it/news/variazione-della-classificazione-e-del-tariffario-regionale-delle-prestazioni-di-laboratorio-analisi-e-anatomia-patologica/">Fonte</a></td></tr>
+<tr><td>Ministero Salute</td><td>Nazionale</td><td>Nomenclatore tariffario specialistica (voci lab. e anatomia patologica)</td><td>—</td><td>aggiornamenti 2026</td><td><a href="https://www.salute.gov.it/portale/temi/p2_6.jsp?lingua=italiano&id=3662&area=programmazioneSanitariaLea&menu=vuoto">Nomenclatore</a></td></tr>
+</tbody>
+</table>
+<h3>Trend aggregazione/concentrazione</h3>
+<p class="note">Prosegue il consolidamento dei service di laboratorio e patologia clinica verso grandi operatori privati (Cerba, Synlab) tramite gare aggregate e adesioni postume tra ASST. Segnale strategico per erogatori privati accreditati e per la pianificazione di reti di laboratorio hub-spoke. Nessun nuovo bando di accreditamento laboratori regionali rilevato oggi.</p>
+</div>
+</details>
+
+<!-- SEZ 9 -->
+<details id="s9" open><summary>SEZ. 9 — Ricerca Scientifica: Genetica e Oncologia</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente/Fonte</th><th>Tema</th><th>Importo</th><th>Scadenza</th><th>Rilevanza strategica</th></tr></thead>
+<tbody>
+<tr><td>Fondazione AIRC</td><td>Individual Grants 2026 (IG, MFAG, Bridge)</td><td>variabile</td><td><span class="u">full proposal 06/03/2026 (chiuso)</span></td><td>Prossima finestra attesa gen 2027. Fellowships 2026 chiuse 11/05. <a href="https://www.airc.it/ricercatori/bandi-per-ricercatori">Bandi AIRC</a></td></tr>
+<tr><td>AIRC 5 per Mille</td><td>Programmi di ricerca multi-unità</td><td>€ 10.000.000</td><td><span class="u">10/03/2026 (chiuso)</span></td><td>Alta rilevanza per reti IRCCS oncologiche. <a href="https://www.obiettivoeuropa.com/bandi/airc-bando-5-per-mille-programmi-di-ricerca-multi-unita">Fonte</a></td></tr>
+<tr><td>MUR — PRIN 2026</td><td>Ricerca fondamentale (incl. area salute/oncologia)</td><td>—</td><td><span class="u">01/06/2026 (chiuso)</span></td><td>Attesa graduatoria. <a href="https://prin.mur.gov.it/">Portale PRIN</a></td></tr>
+<tr><td>Min. Salute — PNRR M6</td><td>Piano Nazionale Genomica (PNG): malattie rare, oncologia, malattie complesse; inserimento tecnologie omiche nei LEA</td><td>—</td><td>attuazione in corso</td><td>🟢 Strategico per precision medicine e genomica clinica. <a href="https://www.pnrr.salute.gov.it/portale/documentazione/p6_2_2_1.jsp?lingua=italiano&id=3311/">PNG</a></td></tr>
+<tr><td>EMA — CHMP (giugno 2026)</td><td>Parere favorevole biosimilari oncologia di supporto: <strong>Denosumab Ascend</strong> (complicanze ossee), <strong>Nylaspeg</strong> (neutropenia post-chemio)</td><td>—</td><td>—</td><td>Impatto su terapie di supporto oncologiche. <a href="https://www.spemital.it/chmp-a-giugno-2026-si-a-sei-nuovi-farmaci/">Fonte</a></td></tr>
+</tbody>
+</table>
+<p class="note">Nessun nuovo bando IRCCS di ricerca in genetica/genomica aperto oggi. Monitorare aperture Ministero Salute (Ricerca Finalizzata) e Horizon EU Cancer Mission per H2/2026.</p>
+</div>
+</details>
+
+<!-- SEZ 10 -->
+<details id="s10" open><summary>SEZ. 10 — Liste d'attesa</summary>
+<div class="body">
+<p class="legend">Standard LEA: <strong>U</strong>=72h · <strong>B</strong>=10gg · <strong>D</strong>=30gg · <strong>P</strong>=120gg. Dati aggregati AGENAS Cruscotto 2.0 (gen 2025–apr 2026). I dati puntuali per singola prestazione &gt;14 giorni non affidabili sono segnalati.</p>
+<table>
+<thead><tr><th>Regione</th><th>Prestazione</th><th>% nei tempi 2026 (I quadrim.)</th><th>vs 2025</th><th>Trend</th></tr></thead>
+<tbody>
+<tr><td>Sicilia</td><td>Prime visite specialistiche</td><td>80,6%</td><td>88,0%</td><td><span class="tag t-warn">▼ in calo</span></td></tr>
+<tr><td>Sicilia</td><td>Esami diagnostici</td><td>72,8%</td><td>76,6%</td><td><span class="tag t-crit">▼ sotto media naz. (84,7%)</span></td></tr>
+<tr><td>Media nazionale</td><td>Esami diagnostici</td><td>84,7%</td><td>—</td><td><span class="tag t-ok">rif.</span></td></tr>
+</tbody>
+</table>
+<p class="note">⚠️ Dati puntuali per classe di priorità (U/B/D/P) e per singola prestazione non disponibili in forma affidabile alla data odierna: <strong>dato non affidabile</strong> per il dettaglio per classe. Utilizzare Cruscotto AGENAS per il puntuale.</p>
+<h3>Misure straordinarie attivate</h3>
+<p>Sicilia: accordo Regione–ospedalità privata convenzionata (+8 mln per abbattimento liste, +4 mln sull'aggregato; risorse complessive citate fino a 15 mln per trapianti midollo/cornea e chirurgia oncologica). Nuovi contratti manager con clausola di decadenza in caso di mancato rispetto del Piano regionale.<br/>
+Lazio: piano di prosecuzione abbattimento liste; revisione "aree di garanzia" in 5 macro-aree dal 01/02/2026; 17 mln per ~400.000 prestazioni "fuori soglia" dirottabili al privato accreditato quando il pubblico è saturo.</p>
+<p class="note">Fonti: <a href="https://www.quotidianodiragusa.it/2026/05/31/sicilia/liste-attesa-sicilia-visite-nei-tempi-2026/">Liste Sicilia</a> · <a href="https://regione.lazio.it/notizie/sanita-piano-abbattere-liste-attesa">Piano Lazio</a> · <a href="https://www.quotidianosanita.it/regioni-e-asl/sicilia-accordo-regione-privati-mln-per-ridurre-le-liste-d-attesa-e-mln-sull-aggregato/">Accordo Sicilia</a></p>
+</div>
+</details>
+
+<!-- SEZ 11 -->
+<details id="s11"><summary>SEZ. 11 — Analisi Regionale</summary>
+<div class="body">
+<div class="reg"><h4>🟠 Sicilia</h4>
+<strong>Novità:</strong> scadenza 09/07 concorsi ASP Trapani (32) e Ragusa (28) dirigenza medica; liste d'attesa in lieve peggioramento (visite 80,6%, diagnostica 72,8% sotto media).<br/>
+<strong>Criticità:</strong> diagnostica sotto media nazionale; graduatorie genetica medica da monitorare.<br/>
+<strong>Opportunità:</strong> 8+4 mln accordo privati per liste d'attesa; profili laboratorio/genetica nei concorsi ASP.<br/>
+<strong>Focus lab/ricerca:</strong> UOC Genetica Medica ASP — presidio genomica regionale in crescita.</div>
+<div class="reg"><h4>🔵 Lazio</h4>
+<strong>Novità:</strong> nuovo assetto "aree di garanzia" liste attesa dal 01/02; concorsi anatomia patologica (2 posti) in chiusura.<br/>
+<strong>Opportunità:</strong> 17 mln prestazioni fuori soglia verso privato accreditato — spazio per erogatori specialistici.</div>
+<div class="reg"><h4>🟢 Puglia</h4>
+Nessuna novità rilevante rilevata oggi su bandi profili strategici. Monitorare IRCCS Giovanni Paolo II Bari (oncologia).</div>
+<div class="reg"><h4>🟣 Campania</h4>
+<strong>Novità:</strong> IRCCS Pascale — Dir. SC Biologia Molecolare e Oncogenesi Virale (profilo top strategico); verificare stato scadenza.</div>
+<div class="reg"><h4>🔴 Lombardia</h4>
+<strong>Novità:</strong> consolidamento service laboratorio/anatomia patologica verso privati (Cerba, Intelsint); tariffario regionale lab/anatomia patologica aggiornato.<br/>
+<strong>Focus:</strong> modello aggregazione laboratori da osservare come benchmark.</div>
+<div class="reg"><h4>⚪ Toscana</h4>
+Nessuna novità odierna. Monitorare AOU Careggi (bandi-gare) e ISPRO (oncologia).</div>
+</div>
+</details>
+
+<!-- SEZ 12 -->
+<details id="s12" open><summary>SEZ. 12 — Azioni consigliate</summary>
+<div class="body">
+<h3>🔴 URGENTE (≤7 giorni)</h3>
+<table>
+<thead><tr><th>Azione</th><th>Scadenza</th></tr></thead>
+<tbody>
+<tr><td>Valutare candidatura/segnalazione concorsi <strong>ASP Trapani (32)</strong> e <strong>ASP Ragusa (28)</strong> dirigenza medica — verificare discipline di laboratorio/diagnostica</td><td>09/07/2026</td></tr>
+<tr><td>Recepire aggiornamento <strong>Note AIFA 39/74/97/99</strong> per impatto prescrittivo</td><td>in vigore 09/07/2026</td></tr>
+<tr><td>Verificare stato scadenza <strong>Dir. SC Biologia Molecolare IRCCS Pascale</strong> (possibile proroga/riapertura)</td><td>ASAP</td></tr>
+</tbody>
+</table>
+<h3>🟡 MEDIA (8–30 giorni)</h3>
+<table><tbody>
+<tr><td>Monitorare graduatorie <strong>Dir. Biologo Genetica Medica</strong> (Sicilia, Padova, S.Orsola) per opportunità di mobilità/incarico</td></tr>
+<tr><td>Seguire pubblicazione <strong>report AGENAS DM 77</strong> post-milestone 30/06 e linee guida Case della Comunità</td></tr>
+<tr><td>Analizzare bando <strong>service anatomia patologica ASST Sette Laghi</strong> come benchmark per gare Sud</td></tr>
+</tbody></table>
+<h3>🟢 MONITORAGGIO (&gt;30 giorni)</h3>
+<table><tbody>
+<tr><td>Attesa nuove finestre <strong>AIRC IG/MFAG 2027</strong> e bandi Ricerca Finalizzata Min. Salute / Horizon EU Cancer Mission</td></tr>
+<tr><td>Seguire attuazione <strong>Piano Nazionale Genomica</strong> e inserimento tecnologie omiche nei LEA</td></tr>
+<tr><td>Monitorare trend <strong>aggregazione laboratori</strong> e nuovi tariffari regionali specialistica</td></tr>
+</tbody></table>
+</div>
+</details>
+
+</div>
+<footer>
+Report generato automaticamente · Monitoraggio strategico sanità italiana · 4 luglio 2026<br/>
+Dati da fonti istituzionali e aggregatori — verificare sempre sulla fonte primaria prima di agire.<br/>
+<a href="archivio/index.html">📁 Archivio report storici</a>
+</footer>
+</body>
+</html>
