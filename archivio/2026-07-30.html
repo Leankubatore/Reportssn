@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Report Sanitario Strategico — 30 luglio 2026</title>
+<style>
+:root{--blu:#003366;--blu2:#1a7fc1;--bg:#eef2f7;--card:#fff;--txt:#1a1a2e;--verde:#1e8f4e;--giallo:#c9950a;--rosso:#c0392b;--bordo:#e0e8f0;}
+*{box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--txt);margin:0;padding:0;line-height:1.5;}
+header{background:linear-gradient(135deg,#003366,#0a4a8f);color:#fff;padding:28px 24px;}
+header h1{margin:0 0 6px;font-size:1.6rem;}
+header .meta{font-size:.9rem;opacity:.9;}
+.badge{display:inline-block;background:#ffffff22;border:1px solid #ffffff55;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-top:10px;}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 24px 60px;}
+nav.quick{background:var(--card);border-radius:10px;padding:14px 18px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,80,.06);display:flex;flex-wrap:wrap;gap:8px;}
+nav.quick a{font-size:.8rem;color:var(--blu2);text-decoration:none;background:#f0f6fb;padding:5px 11px;border-radius:6px;border:1px solid #dce8f2;}
+nav.quick a:hover{background:var(--blu);color:#fff;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0;}
+.card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(0,0,80,.07);border-top:4px solid var(--blu);}
+.card .num{font-size:2rem;font-weight:700;color:var(--blu);}
+.card .lbl{font-size:.82rem;color:#556;margin-top:4px;}
+.card.urg{border-top-color:var(--rosso);}
+.card.urg .num{color:var(--rosso);}
+details{background:var(--card);border-radius:12px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,80,.05);overflow:hidden;}
+details>summary{cursor:pointer;padding:16px 20px;font-weight:600;font-size:1.02rem;color:var(--blu);list-style:none;display:flex;justify-content:space-between;align-items:center;background:#f7fafd;}
+details>summary::-webkit-details-marker{display:none;}
+details>summary::after{content:'▸';transition:transform .2s;color:var(--blu2);}
+details[open]>summary::after{transform:rotate(90deg);}
+.body{padding:8px 20px 20px;}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.85rem;}
+th{background:var(--blu);color:#fff;padding:9px 11px;text-align:left;}
+td{padding:8px 11px;border-bottom:1px solid var(--bordo);vertical-align:top;}
+tr:nth-child(even) td{background:#f7fafd;}
+a{color:var(--blu2);}
+.tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:10px;font-weight:600;}
+.t-verde{background:#e3f6ec;color:var(--verde);}
+.t-giallo{background:#fcf3d9;color:var(--giallo);}
+.t-rosso{background:#fbe4e0;color:var(--rosso);}
+.note{font-size:.82rem;color:#667;font-style:italic;}
+.empty{color:#999;font-style:italic;padding:8px 0;}
+.la-ok{background:#e3f6ec !important;}
+.la-warn{background:#fcf3d9 !important;}
+.la-bad{background:#fbe4e0 !important;}
+.azione{padding:10px 14px;border-radius:8px;margin:8px 0;font-size:.9rem;}
+.a-rosso{background:#fbe4e0;border-left:4px solid var(--rosso);}
+.a-giallo{background:#fcf3d9;border-left:4px solid var(--giallo);}
+.a-verde{background:#e3f6ec;border-left:4px solid var(--verde);}
+footer{background:var(--blu);color:#fff;padding:24px;text-align:center;font-size:.85rem;}
+footer a{color:#9fd0f0;font-weight:600;text-decoration:none;}
+h3.reg{color:var(--blu);border-bottom:2px solid var(--bordo);padding-bottom:4px;margin:18px 0 8px;}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap" style="padding-bottom:0;">
+<h1>🏥 Report Sanitario Strategico — Sanità Italiana</h1>
+<div class="meta">Monitoraggio istituzionale · Giovedì 30 luglio 2026 · ore 08:30</div>
+<span class="badge">📁 Archivio disponibile</span>
+</div>
+</header>
+
+<div class="wrap">
+
+<nav class="quick">
+<a href="#s1">1·Bandi</a>
+<a href="#s2">2·Manif. interesse</a>
+<a href="#s3">3·Incarichi dir.</a>
+<a href="#s4">4·Gare</a>
+<a href="#s5">5·Min. Salute</a>
+<a href="#s6">6·AGENAS</a>
+<a href="#s7">7·AIFA</a>
+<a href="#s8">8·Laboratori</a>
+<a href="#s9">9·Ricerca</a>
+<a href="#s10">10·Liste attesa</a>
+<a href="#s11">11·Regioni</a>
+<a href="#s12">12·Azioni</a>
+</nav>
+
+<div class="cards">
+<div class="card"><div class="num">6</div><div class="lbl">Bandi/concorsi profili strategici rilevati</div></div>
+<div class="card"><div class="num">2</div><div class="lbl">Gare/service diagnostici di rilievo</div></div>
+<div class="card"><div class="num">3</div><div class="lbl">Novità ricerca & farmaci oncologici</div></div>
+<div class="card urg"><div class="num">3</div><div class="lbl">Azioni urgenti (≤7 giorni)</div></div>
+</div>
+
+<!-- SEZ 1 -->
+<details id="s1" open>
+<summary>SEZ. 1 — Bandi e Concorsi (profili strategici)</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente</th><th>Tipo</th><th>Titolo</th><th>Data pubbl.</th><th>Scadenza</th><th>Area</th><th>Nota operativa</th></tr></thead>
+<tbody>
+<tr><td>ASP Palermo</td><td>Concorso pubblico titoli+esami</td><td>1 posto Dirigente Medico Anatomia Patologica (t.i.)</td><td>GU 4ª s. n.39 del 22/05/2026</td><td>da verificare (≈30 gg da pubbl.)</td><td>Anatomia patologica</td><td>Profilo strategico. <a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank">Concorsi ASP PA</a></td></tr>
+<tr><td>ASP Palermo</td><td>Concorso pubblico titoli+esami</td><td>3 posti Dirigente Biologo — Patologia Clinica (Laboratorio Analisi)</td><td>2026</td><td>da verificare</td><td>Patologia clinica / Lab</td><td>Alta rilevanza per medicina di laboratorio. <a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank">Link</a></td></tr>
+<tr><td>A.O.E. Cannizzaro (Catania)</td><td>Avviso pubblico / graduatoria</td><td>Dirigente Medico Anatomia Patologica (incarichi a tempo determinato)</td><td>2026</td><td>graduatoria aperta</td><td>Anatomia patologica</td><td>Utile per incarichi rapidi. <a href="https://www.asppalermo.org/novita/a-o-e-cannizzaro-di-catania-avviso-pubblico-graduatoria-di-dirigente-medico-di-anatomia-patologica/" target="_blank">Link</a></td></tr>
+<tr><td>Azienda SSN (Puglia)</td><td>Concorso pubblico titoli+esami</td><td>2 posti Dirigente Medico — Oncologia (t.i.)</td><td>GU 4ª s. n.53 del 14/07/2026</td><td>≈13/08/2026</td><td>Oncologia medica</td><td>🔴 Scadenza a breve. <a href="https://www.gazzettaufficiale.it/ricerca/concorsi" target="_blank">GU Concorsi</a></td></tr>
+<tr><td>Azienda SSN</td><td>Concorso pubblico titoli+esami</td><td>1 posto Dirigente Medico — Genetica Medica</td><td>GU 4ª s. n.50 del 03/07/2026</td><td>≈02/08/2026</td><td>Genetica medica</td><td>🔴 Profilo raro, verificare ente e scadenza esatta. <a href="https://www.gazzettaufficiale.it/ricerca/concorsi" target="_blank">GU Concorsi</a></td></tr>
+<tr><td>Aziende SSN varie</td><td>Avviso incarico quinquennale SC</td><td>Direttore SC Anatomia Patologica / SC Laboratorio Analisi</td><td>2026 (più avvisi)</td><td>varie</td><td>Direzione SC lab/anat.pat.</td><td>Monitorare aggregatore. <a href="https://www.concorsi.it/concorsi/direttore-di-struttura-complessa-anatomia-patologica" target="_blank">Elenco DSC anat. pat.</a> · <a href="https://www.concorsi.it/concorsi/direttore-di-struttura-complessa-laboratorio-analisi" target="_blank">DSC lab</a></td></tr>
+</tbody>
+</table>
+<p class="note">Nota: date di scadenza indicative ricavate dalla data di pubblicazione in GU (termine ordinario 30 gg). Verificare sempre il bando integrale prima di agire.</p>
+</div>
+</details>
+
+<!-- SEZ 2 -->
+<details id="s2">
+<summary>SEZ. 2 — Manifestazioni di Interesse</summary>
+<div class="body">
+<p class="empty">Nessuna manifestazione di interesse per incarichi dirigenziali SSN o erogatori privati accreditati specificamente rilevata oggi tramite ricerca web. Monitoraggio confermato su portali ASP/AOU e aggregatori regionali.</p>
+</div>
+</details>
+
+<!-- SEZ 3 -->
+<details id="s3">
+<summary>SEZ. 3 — Incarichi Dirigenziali (DG/DS/DA ex art. 15 D.Lgs. 502/92)</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente</th><th>Tipo</th><th>Titolo</th><th>Data</th><th>Area</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Aziende SSN Sicilia (GURS)</td><td>Avvisi incarico quinquennale SC</td><td>Direttore medico/biologo/chimico — direzione SC (varie discipline); es. Direttore SC Salute Mentale S.Agata-Mistretta</td><td>GURS luglio 2026</td><td>Direzione SC</td><td>Non tutti nei profili target; segnalati solo per completezza dirigenziale. <a href="https://www.gurs.regione.sicilia.it" target="_blank">GURS</a></td></tr>
+</tbody>
+</table>
+<p class="note">Nessun nuovo avviso DG/DS/DA aziendale nei profili strategici rilevato in modo specifico oggi. Da verificare GURS serie concorsi e sezione Amministrazione Trasparente delle aziende.</p>
+</div>
+</details>
+
+<!-- SEZ 4 -->
+<details id="s4">
+<summary>SEZ. 4 — Gare e Affidamenti (solo servizi medici)</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente</th><th>Regione</th><th>Oggetto</th><th>Valore</th><th>Periodo/Scad.</th><th>Nota operativa</th></tr></thead>
+<tbody>
+<tr><td>ASST Valle Olona</td><td>Lombardia</td><td>Service patologia clinica di laboratorio (rinnovo a Cerba Healthcare Lombardia)</td><td>€ 973.099,72 IVA incl.</td><td>01/01/2026–31/12/2028</td><td>Riferimento di benchmark per valore service lab. <a href="https://www.asst-valleolona.it/amm-trasparente/provvedimenti-organi-indirizzo-politico/" target="_blank">Provvedimenti</a></td></tr>
+<tr><td>Regione Lazio (piattaforma S.TEL.LA)</td><td>Lazio</td><td>Service NGS e patologia molecolare (FFPE/fresco) per diagnosi oncologica e onco-ematologica</td><td>n.d.</td><td>in corso/pregressa</td><td>Modello di gara NGS in service da monitorare per rinnovi. <a href="https://stella.regione.lazio.it" target="_blank">S.TEL.LA</a></td></tr>
+</tbody>
+</table>
+<p class="note">Escluse forniture, dispositivi, reagenti e manutenzioni come da criteri. Nessuna nuova gara odierna su anatomia patologica/telemedicina diagnostica confermata con bando attivo.</p>
+</div>
+</details>
+
+<!-- SEZ 5 -->
+<details id="s5">
+<summary>SEZ. 5 — Ministero della Salute</summary>
+<div class="body">
+<table>
+<thead><tr><th>Tipo</th><th>Titolo</th><th>Data</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Circolare</td><td>Dipartimento Prevenzione, Ricerca e Salute — modifica frequenza trasmissione dati (coperture vaccinali a cadenza settimanale da Regioni/PA)</td><td>Giugno 2026</td><td>Impatto su flussi informativi regionali. <a href="https://www.salute.gov.it/new/it/sezione/norme-e-atti/" target="_blank">Norme e atti</a></td></tr>
+<tr><td>Atto di indirizzo</td><td>Atto di indirizzo 2026 del Ministro della Salute (priorità politiche annuali)</td><td>Gennaio 2026</td><td>Quadro strategico di riferimento. <a href="https://www.salute.gov.it/new/sites/default/files/2026-01/Atto%20di%20indirizzo%202026%20_firmato%20Ministro.pdf" target="_blank">PDF</a></td></tr>
+</tbody>
+</table>
+<p class="note">Nessuna nuova circolare/decreto datato specificamente luglio 2026 confermato via ricerca odierna. Verificare direttamente <a href="https://www.salute.gov.it/portale/news/p3_2_1.jsp" target="_blank">news Ministero</a>.</p>
+</div>
+</details>
+
+<!-- SEZ 6 -->
+<details id="s6">
+<summary>SEZ. 6 — AGENAS</summary>
+<div class="body">
+<table>
+<thead><tr><th>Tipo</th><th>Titolo</th><th>Data</th><th>Nota strategica</th></tr></thead>
+<tbody>
+<tr><td>Bollettino monitoraggio</td><td>1° Bollettino AGENAS sul monitoraggio delle Liste di Attesa — dati 1° semestre 2026 (14 tipi di visite specialistiche + 22 esami diagnostici, dettaglio regionale)</td><td>Luglio 2026</td><td>Documento chiave del mese: +1,6 mln prestazioni nei tempi; restano 2,8 mln fuori soglia. <a href="https://www.agenas.gov.it/aree-tematiche/comunicazione/primo-piano/2794-online-il-primo-bollettino-agenas-sul-monitoraggio-delle-liste-di-attesa" target="_blank">Bollettino</a></td></tr>
+<tr><td>Report annuale</td><td>Report annuale 2025 monitoraggio strutture sanitarie accreditate (agg. 24/04/2026)</td><td>2026</td><td>Base per accreditamento istituzionale ex DM 19/12/2022. <a href="https://www.agenas.gov.it/aree-tematiche/comunicazione/primo-piano/2693-agenas-pubblica-il-report-annuale-2025-sul-monitoraggio-delle-strutture-sanitarie-accreditate" target="_blank">Link</a></td></tr>
+<tr><td>Avviso</td><td>Apertura Albo 2026 esperti, collaboratori e ricercatori AGENAS</td><td>2026</td><td>Opportunità per profili tecnici/valutatori. <a href="https://www.agenas.gov.it/aree-tematiche/comunicazione/primo-piano/2739-agenas-apre-l%E2%80%99albo-2026-per-esperti,-collaboratori-e-ricercatori" target="_blank">Link</a></td></tr>
+</tbody>
+</table>
+</div>
+</details>
+
+<!-- SEZ 7 -->
+<details id="s7" open>
+<summary>SEZ. 7 — AIFA</summary>
+<div class="body">
+<table>
+<thead><tr><th>Tipo</th><th>Provvedimento</th><th>Data</th><th>Area</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Rimborsabilità SSN</td><td>Nuovo farmaco oncologico <b>Loqtorzi (toripalimab)</b> — anti-PD-1, 1ª linea carcinoma nasofaringeo recidivante/metastatico + chemioterapia; + 10 estensioni indicazione + 2 equivalenti</td><td>23/07/2026</td><td>Oncologia / immuno-oncologia</td><td>Estensioni anche per tumori neuroendocrini, linfomi, ca. prostata. <a href="https://www.fnob.it/2026/07/23/aifa-approva-un-nuovo-farmaco-oncologico-e-amplia-i-rimborsi-per-10-terapie/" target="_blank">Fonte</a></td></tr>
+<tr><td>Rimborsabilità (CdA)</td><td>Via libera CdA AIFA: 1 nuova molecola + 10 estensioni + 1 equivalente; Tremfya (guselkumab) per colite ulcerosa e Crohn moderato-severo</td><td>Seduta 08/07/2026</td><td>Immunologia/gastro</td><td><a href="https://www.aifa.gov.it/-/via-libera-cda-aifa-alla-rimborsabilita-di-4-nuovi-medicinali-5-estensioni-di-indicazione-e-2-equivalenti" target="_blank">AIFA</a></td></tr>
+<tr><td>Report</td><td>Rapporto AIFA tempistiche prezzo-rimborso 2024–2026: tempi medi valutazione ridotti a ~4 mesi</td><td>2026</td><td>Governance farmaci</td><td>Rilevante per accesso precoce oncologici. <a href="https://www.aifa.gov.it/-/rapporto-tempistiche-prezzo-rimborso-2024-2026" target="_blank">Rapporto</a></td></tr>
+<tr><td>EMA — pipeline</td><td>Farmaci oncologici in valutazione EMA (luglio 2026): bevacizumab, ensartinib, taletrectinib (NSCLC), target therapy per ca. ovarico e linfomi</td><td>Luglio 2026</td><td>Target therapy</td><td>Anticipa future negoziazioni AIFA. <a href="https://farmaciavirtuale.it/farmaci-in-valutazione-ema-lelenco-aggiornato-a-luglio-2026/" target="_blank">Elenco EMA</a></td></tr>
+</tbody>
+</table>
+</div>
+</details>
+
+<!-- SEZ 8 -->
+<details id="s8" open>
+<summary>SEZ. 8 — Laboratori Analisi e Medicina di Laboratorio</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente</th><th>Regione</th><th>Tipo</th><th>Valore stimato</th><th>Scadenza</th><th>Link</th></tr></thead>
+<tbody>
+<tr><td>ASP Palermo</td><td>Sicilia</td><td>Concorso 3 Dirigenti Biologi Patologia Clinica (Lab Analisi)</td><td>—</td><td>da verificare</td><td><a href="https://www.asppalermo.org/amm-trasparente/concorsi-anno-2026/" target="_blank">ASP PA</a></td></tr>
+<tr><td>ASST Valle Olona</td><td>Lombardia</td><td>Service patologia clinica di lab. (Cerba Healthcare)</td><td>€ 973.099,72</td><td>fino 31/12/2028</td><td><a href="https://www.asst-valleolona.it/amm-trasparente/provvedimenti-organi-indirizzo-politico/" target="_blank">Link</a></td></tr>
+<tr><td>Regione Lazio</td><td>Lazio</td><td>Service NGS / patologia molecolare oncologica</td><td>n.d.</td><td>in corso</td><td><a href="https://stella.regione.lazio.it" target="_blank">S.TEL.LA</a></td></tr>
+</tbody>
+</table>
+<p class="note">Trend da monitorare: concentrazione/aggregazione dei laboratori SSN e rinnovi convenzioni con privati accreditati (modello Cerba/Synlab). Nessun nuovo aggiornamento del tariffario prestazioni di laboratorio rilevato oggi.</p>
+</div>
+</details>
+
+<!-- SEZ 9 -->
+<details id="s9" open>
+<summary>SEZ. 9 — Ricerca Scientifica: Genetica e Oncologia</summary>
+<div class="body">
+<table>
+<thead><tr><th>Ente/Fonte</th><th>Tema</th><th>Importo</th><th>Scadenza</th><th>Rilevanza strategica</th></tr></thead>
+<tbody>
+<tr><td>Fondazione AIRC</td><td>Individual Grants 2026 (IG, MFAG, Start-up, Bridge) + bando 5×1000 "From Tumor Complexity to Precision Oncology"</td><td>varie tipologie</td><td>chiusi (scad. 06/03 e 10/03/2026)</td><td>Ciclo 2026 concluso; pianificare per call 2027. <a href="https://www.airc.it/ricercatori/bandi-per-ricercatori" target="_blank">Bandi AIRC</a></td></tr>
+<tr><td>Regione Valle d'Aosta</td><td>Bando "Progetti di ricerca 2026–2028" ambito oncologico e sanitario (traslazionale, clinica, organizzativa)</td><td>€ 312.000</td><td>progetti fino 24 mesi</td><td>Opportunità per reti di ricerca multiregionali. <a href="https://www.ansa.it/valledaosta/notizie/sanita_regionale/2026/05/25/un-bando-da-312.000-euro-per-sostenere-la-ricerca-in-ambito-oncologico_068f3689-b359-4fe3-a7ef-ffe5490163d0.html" target="_blank">ANSA</a></td></tr>
+<tr><td>PNRR / Fondo complementare</td><td>Iniziative ricerca sanitaria (500 mln, 100 mln/anno 2022–2026) — conclusione entro dic. 2026</td><td>€ 500 mln compl.</td><td>chiusura dic. 2026</td><td>Fase di rendicontazione finale; verificare bandi a cascata IRCCS. <a href="https://www.pnrr.salute.gov.it" target="_blank">PNRR Salute</a></td></tr>
+<tr><td>MUR — bandi.mur.gov.it</td><td>Posizioni ricercatore su genomica (es. caratterizzazione clinico-genomica Parkinson)</td><td>—</td><td>13/08/2026</td><td>Segnale di domanda su competenze genomiche. <a href="https://bandi.mur.gov.it" target="_blank">Bandi MUR</a></td></tr>
+</tbody>
+</table>
+<p class="note">Nessun nuovo studio clinico oncologico/malattie rare specifico da IRCCS italiani confermato oggi; nessun aggiornamento AIRTUM rilevato in giornata.</p>
+</div>
+</details>
+
+<!-- SEZ 10 -->
+<details id="s10" open>
+<summary>SEZ. 10 — Liste d'Attesa (per regione)</summary>
+<div class="body">
+<p class="note">Fonte: 1° Bollettino AGENAS, dati 1° semestre 2026 (agg. 21–23/07/2026, ≤14 gg → dato affidabile). Standard LEA: U=72h · B=10gg · D=30gg · P=120gg. I dati disponibili sono aggregati come % di prestazioni erogate entro i tempi massimi di garanzia (non per singola classe di priorità).</p>
+<table>
+<thead><tr><th>Regione</th><th>Prime visite % nei tempi</th><th>Esami diagnostici % nei tempi</th><th>Trend vs 2025</th><th>Valutazione</th></tr></thead>
+<tbody>
+<tr><td>Italia (media)</td><td>78,5%</td><td>84,6%</td><td>▲ (+2,1 / +1,8 pt)</td><td class="la-warn">In miglioramento</td></tr>
+<tr><td>Lazio</td><td>91,6%</td><td>89,7%</td><td>▲</td><td class="la-ok">Ai vertici</td></tr>
+<tr><td>Lombardia</td><td>~ media (+7,7% semestre; 9ª in classifica)</td><td>—</td><td>▲▲</td><td class="la-warn">Forte recupero</td></tr>
+<tr><td>Puglia</td><td>&lt; 70%</td><td>—</td><td>≈ / lieve ▲</td><td class="la-bad">Tra le peggiori</td></tr>
+<tr><td>Sicilia</td><td>79,7% (da 87,2% nel 2025)</td><td>71,9% (da 75,9%)</td><td>▼ in peggioramento</td><td class="la-bad">Sotto soglia</td></tr>
+</tbody>
+</table>
+<h3 class="reg" style="font-size:.95rem;">Misure straordinarie attivate</h3>
+<p style="font-size:.86rem;">
+<b>Puglia:</b> Piano recupero liste avviato il 02/02/2026; conclusa la 1ª fase sperimentale il 30/06/2026 con oltre 133.000 prestazioni anticipate da febbraio.<br>
+<b>Sicilia:</b> peggioramento su diagnostica; richiesta parlamentare (sen. Ternullo) di piano di supporto e attuazione PNGLA 2026–2028; spinta a collaborazione pubblico-privato.<br>
+<b>Lombardia/Lazio:</b> consolidamento misure già in atto (agende, extra-orario, privato accreditato).
+</p>
+</div>
+</details>
+
+<!-- SEZ 11 -->
+<details id="s11">
+<summary>SEZ. 11 — Analisi Regionale</summary>
+<div class="body">
+
+<h3 class="reg">Sicilia</h3>
+<p style="font-size:.86rem;"><b>Novità:</b> bandi GURS luglio 2026 per DSC e dirigenza; concorsi ASP Palermo (anatomia patologica, biologi patologia clinica); graduatoria Cannizzaro anatomia patologica. <b>Criticità:</b> liste d'attesa in peggioramento, sotto soglia nazionale su diagnostica. <b>Opportunità:</b> forte domanda di profili di laboratorio e anatomia patologica; spazio per accordi pubblico-privato su abbattimento liste. <b>Focus lab/ricerca:</b> reclutamento biologi patologia clinica.</p>
+
+<h3 class="reg">Lazio</h3>
+<p style="font-size:.86rem;"><b>Novità:</b> performance liste ai vertici nazionali (&gt;90% prime visite). <b>Criticità:</b> mantenere standard con volumi crescenti. <b>Opportunità:</b> gara/service NGS e patologia molecolare (piattaforma S.TEL.LA) come modello. <b>Focus lab/ricerca:</b> genomica oncologica in service.</p>
+
+<h3 class="reg">Puglia</h3>
+<p style="font-size:.86rem;"><b>Novità:</b> concorso 2 Dirigenti Oncologia (GU 14/07); 133k prestazioni anticipate. <b>Criticità:</b> resta tra le peggiori (&lt;70% prime visite). <b>Opportunità:</b> seconda fase piano recupero liste. <b>Focus lab/ricerca:</b> IRCCS Giovanni Paolo II Bari da monitorare.</p>
+
+<h3 class="reg">Campania</h3>
+<p style="font-size:.86rem;"><b>Novità:</b> concorsi dirigenza medica (GU n.44 del 12/06). <b>Criticità:</b> dati liste da consolidare. <b>Opportunità:</b> IRCCS Pascale su oncologia. <b>Focus lab/ricerca:</b> nessuna novità odierna specifica.</p>
+
+<h3 class="reg">Lombardia</h3>
+<p style="font-size:.86rem;"><b>Novità:</b> forte recupero liste (+7,7% semestre, 9° posto Agenas); rinnovo service lab ASST Valle Olona. <b>Criticità:</b> ancora sotto le regioni top. <b>Opportunità:</b> modello service laboratorio con privati accreditati. <b>Focus lab/ricerca:</b> INT Milano, IEO.</p>
+
+<h3 class="reg">Toscana</h3>
+<p style="font-size:.86rem;"><b>Novità:</b> nessuna novità rilevata oggi. <b>Criticità/Opportunità:</b> monitorare AOU Careggi (bandi-gare) e ISPRO. <b>Focus lab/ricerca:</b> —</p>
+
+</div>
+</details>
+
+<!-- SEZ 12 -->
+<details id="s12" open>
+<summary>SEZ. 12 — Azioni Consigliate</summary>
+<div class="body">
+<div class="azione a-rosso">🔴 <b>URGENTE (≤7gg)</b> — Verificare e, se in target, predisporre candidatura per: <b>Dirigente Medico Genetica Medica</b> (GU n.50 del 03/07, scad. ≈02/08) e <b>2 Dirigenti Oncologia Puglia</b> (GU n.53 del 14/07, scad. ≈13/08). Scaricare i bandi integrali da GU Concorsi per confermare enti e termini esatti.</div>
+<div class="azione a-rosso">🔴 <b>URGENTE</b> — Monitorare concorsi ASP Palermo (3 Biologi Patologia Clinica + Dir. Medico Anatomia Patologica): confermare scadenze reali sul portale ASP prima che decorrano i 30 gg.</div>
+<div class="azione a-rosso">🔴 <b>URGENTE</b> — Analizzare il 1° Bollettino AGENAS liste d'attesa per posizionamento Sicilia (sotto soglia): finestra per proposte di collaborazione pubblico-privato su diagnostica e laboratorio.</div>
+<div class="azione a-giallo">🟡 <b>MEDIA (8–30gg)</b> — Studiare il modello di gara NGS/patologia molecolare Lazio (S.TEL.LA) e il rinnovo service ASST Valle Olona come benchmark per prossime gare di laboratorio in service.</div>
+<div class="azione a-giallo">🟡 <b>MEDIA</b> — Presidiare i bandi MUR/genomica (scad. 13/08) e la fase finale PNRR ricerca sanitaria (chiusura dic. 2026) per opportunità a cascata negli IRCCS.</div>
+<div class="azione a-verde">🟢 <b>MONITORAGGIO (&gt;30gg)</b> — Pianificare per il ciclo AIRC 2027 (Individual Grants/5×1000) e seguire la pipeline EMA oncologica (bevacizumab, ensartinib, taletrectinib) in vista delle negoziazioni AIFA.</div>
+<div class="azione a-verde">🟢 <b>MONITORAGGIO</b> — Seguire evoluzione tariffario prestazioni di laboratorio e trend di aggregazione dei laboratori SSN.</div>
+</div>
+</details>
+
+</div>
+
+<footer>
+Report generato automaticamente · Monitoraggio Strategico Sanità Italiana · 30 luglio 2026<br>
+Dati da fonti istituzionali e stampa specializzata verificate via ricerca web. Verificare sempre i bandi integrali prima di agire.<br><br>
+<a href="archivio/index.html">📁 Archivio report storici</a>
+</footer>
+
+</body>
+</html>
